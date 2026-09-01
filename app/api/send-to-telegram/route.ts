@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { saveQuotation } from '@/lib/db';
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
@@ -32,15 +31,8 @@ export async function POST(request: NextRequest) {
 
     const data: QuotationData = await request.json();
 
-    let quotationId: number | null = null;
-
-    try {
-      // Save to database if possible; Vercel/serverless may not allow SQLite writes in the project folder.
-      const quotation = saveQuotation(data);
-      quotationId = quotation.id;
-    } catch (dbError) {
-      console.warn('Database write failed, continuing with Telegram dispatch:', dbError);
-    }
+    // No database is required for this setup: data is sent directly to Telegram.
+    const quotationId = Date.now();
 
     // Format the message for Telegram
     let message = `🏠 <b>طلب عرض سعر جديد - YAM</b>\n\n`;
@@ -99,7 +91,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message: 'تم إرسال الطلب بنجاح إلى الفريق',
-      quotationId: quotationId ?? null,
+      quotationId,
       telegramMessageId: result.result.message_id,
     });
   } catch (error) {

@@ -119,24 +119,28 @@ const formatCurrency = (value: number) =>
 const getAutomaticReply = (message: string) => {
   const normalizedMessage = message.toLowerCase();
 
-  if (normalizedMessage.includes('سعر') || normalizedMessage.includes('تكلف') || normalizedMessage.includes('فلوس')) {
+  if (normalizedMessage.includes('سعر') || normalizedMessage.includes('تكلف') || normalizedMessage.includes('فلوس') || normalizedMessage.includes('price')) {
     return 'تقدر تشوف التكلفة التقديرية مباشرة من خطوة الباقة، والسعر بيتغير حسب المساحة وعدد الغرف والأجهزة المختارة.';
   }
 
-  if (normalizedMessage.includes('كاميرا') || normalizedMessage.includes('أمان') || normalizedMessage.includes('قفل')) {
+  if (normalizedMessage.includes('كاميرا') || normalizedMessage.includes('أمان') || normalizedMessage.includes('قفل') || normalizedMessage.includes('camera') || normalizedMessage.includes('security')) {
     return 'نوفر كاميرات داخلية وخارجية، حساسات حركة، حساسات أمان، وأقفال ذكية. اختار العدد المطلوب لكل غرفة من خطوة الأجهزة.';
   }
 
-  if (normalizedMessage.includes('باقة') || normalizedMessage.includes('pro') || normalizedMessage.includes('احتراف')) {
+  if (normalizedMessage.includes('باقة') || normalizedMessage.includes('pro') || normalizedMessage.includes('احتراف') || normalizedMessage.includes('package')) {
     return 'الباقة الأساسية مناسبة للاحتياجات اليومية، والباقة الاحترافية تشمل تحكمًا أوسع في الأنظمة والسيناريوهات.';
   }
 
-  if (normalizedMessage.includes('تواصل') || normalizedMessage.includes('واتساب') || normalizedMessage.includes('رقم')) {
+  if (normalizedMessage.includes('تواصل') || normalizedMessage.includes('واتساب') || normalizedMessage.includes('رقم') || normalizedMessage.includes('contact') || normalizedMessage.includes('whatsapp')) {
     return 'يمكنك التواصل معنا على واتساب من خلال الرقم +201116660532، وفريق YAM هيرد عليك بأقرب وقت.';
   }
 
-  if (normalizedMessage.includes('مساح') || normalizedMessage.includes('غرف')) {
+  if (normalizedMessage.includes('مساح') || normalizedMessage.includes('غرف') || normalizedMessage.includes('room') || normalizedMessage.includes('area')) {
     return 'أدخل مساحة العقار وحدد عدد الغرف، وبعدها اختار الأجهزة المطلوبة لكل غرفة للحصول على تقدير أدق.';
+  }
+
+  if (normalizedMessage.includes('مرحبا') || normalizedMessage.includes('السلام') || normalizedMessage.includes('hello') || normalizedMessage.includes('hi')) {
+    return 'أهلا بك، أنا مساعد YAM. اسألني عن السعر، الباقات، الكاميرات، أو طريقة التواصل.';
   }
 
   return 'وصلت رسالتك. اسألني عن الأسعار، الكاميرات، الباقات، أو طريقة التواصل مع فريق YAM.';
@@ -157,6 +161,7 @@ export default function Page() {
   const [expandedRoomId, setExpandedRoomId] = useState<string | null>('living');
   const [chatOpen, setChatOpen] = useState(false);
   const [chatInput, setChatInput] = useState('');
+  const [chatLeadState, setChatLeadState] = useState<{ name: string; phone: string; waitingFor: 'name' | 'phone' } | null>(null);
   const [chatMessages, setChatMessages] = useState([
     { id: 1, sender: 'bot', text: 'مرحباً، كيف يمكننا المساعدة في مشروعك الذكي؟' },
     { id: 2, sender: 'bot', text: 'يمكنك مراجعة الأسعار الفورية وتحديد الباقة المناسبة في أقل وقت.' },
@@ -261,23 +266,98 @@ export default function Page() {
     );
   };
 
+  const sendLeadToTelegram = async (name: string, phone: string) => {
+    try {
+      await fetch('/api/send-to-telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          serviceType: 'الدردشة المباشرة',
+          propertyArea: 0,
+          rooms: [],
+          fullName: name,
+          phoneNumber: phone,
+          email: '',
+          selectedPackage: 'استفسار / حجز عبر الشات',
+          totalFeatures: 0,
+        }),
+      });
+    } catch (error) {
+      console.error('Chat lead send error:', error);
+    }
+  };
+
   const sendChatMessage = () => {
     const trimmed = chatInput.trim();
     if (!trimmed) return;
 
-    setChatMessages((previous) => [...previous, { id: Date.now(), sender: 'user', text: trimmed }]);
+    const userMessage = { id: Date.now(), sender: 'user', text: trimmed };
+    setChatMessages((previous) => [...previous, userMessage]);
     setChatInput('');
 
+    if (chatLeadState) {
+      if (chatLeadState.waitingFor === 'name') {
+        setChatLeadState({ ...chatLeadState, name: trimmed, waitingFor: 'phone' });
+        setTimeout(() => {
+          setChatMessages((previous) => [
+            ...previous,
+            {
+              id: Date.now() + 1,
+              sender: 'bot',
+              text: 'شكراً، الآن اكتب رقم الهاتف أو الواتساب حتى نرسل طلبك إلى فريق YAM.',
+            },
+          ]);
+        }, 300);
+        return;
+      }
+
+      if (chatLeadState.waitingFor === 'phone') {
+        const leadName = chatLeadState.name || 'غير محدد';
+        setChatLeadState(null);
+
+        setTimeout(async () => {
+          await sendLeadToTelegram(leadName, trimmed);
+          setChatMessages((previous) => [
+            ...previous,
+            {
+              id: Date.now() + 1,
+              sender: 'bot',
+              text: 'تم تسجيل طلبك بنجاح، وسيقوم فريق YAM بالتواصل معك في أقرب وقت.',
+            },
+          ]);
+        }, 300);
+        return;
+      }
+    }
+
+    const wantsLead = /(حجز|استفسار|استشارة|طلب|تواصل|أريد|اريد|مساعدة|booking|book|reserve|reservation|quote|عرض|سعر)/i.test(trimmed);
+
+    if (wantsLead) {
+      setChatLeadState({ name: '', phone: '', waitingFor: 'name' });
+      setTimeout(() => {
+        setChatMessages((previous) => [
+          ...previous,
+          {
+            id: Date.now() + 1,
+            sender: 'bot',
+            text: 'أكيد، نبدأ طلب جديد. اكتب الاسم بالكامل أولاً.',
+          },
+        ]);
+      }, 300);
+      return;
+    }
+
+    const botReply = getAutomaticReply(trimmed);
     setTimeout(() => {
       setChatMessages((previous) => [
         ...previous,
         {
           id: Date.now() + 1,
           sender: 'bot',
-          text: getAutomaticReply(trimmed),
+          text: botReply,
         },
       ]);
-    }, 700);
+    }, 300);
   };
 
   const downloadPdfSummary = () => {

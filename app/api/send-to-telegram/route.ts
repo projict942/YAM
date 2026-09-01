@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { saveQuotation } from '@/lib/db';
 
-const BOT_TOKEN = '8354036359:AAHUHx-pz6GEovZWvg2nSwAh1tEa-MpnvrE';
-const CHAT_ID = '-1003732345427';
-const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
+const TELEGRAM_API = BOT_TOKEN ? `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage` : '';
 
 interface QuotationData {
   serviceType: string;
@@ -23,6 +23,13 @@ interface QuotationData {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!BOT_TOKEN || !CHAT_ID || !TELEGRAM_API) {
+      return NextResponse.json(
+        { error: 'Telegram credentials are missing. Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in Vercel environment variables.' },
+        { status: 500 }
+      );
+    }
+
     const data: QuotationData = await request.json();
 
     // Save to database

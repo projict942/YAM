@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+npm-debug.log*
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+quotations.db
+quotations.db-shm
+quotations.db-wal
+*.log

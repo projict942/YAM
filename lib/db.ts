@@ -5,7 +5,10 @@ let db: Database.Database | null = null;
 
 export function getDB() {
   if (!db) {
-    const dbPath = path.join(process.cwd(), 'quotations.db');
+    const dbPath = process.env.VERCEL
+      ? '/tmp/quotations.db'
+      : path.join(process.cwd(), 'quotations.db');
+
     db = new Database(dbPath);
     db.pragma('journal_mode = WAL');
     initializeSchema();

@@ -32,8 +32,15 @@ export async function POST(request: NextRequest) {
 
     const data: QuotationData = await request.json();
 
-    // Save to database
-    const quotation = saveQuotation(data);
+    let quotationId: number | null = null;
+
+    try {
+      // Save to database if possible; Vercel/serverless may not allow SQLite writes in the project folder.
+      const quotation = saveQuotation(data);
+      quotationId = quotation.id;
+    } catch (dbError) {
+      console.warn('Database write failed, continuing with Telegram dispatch:', dbError);
+    }
 
     // Format the message for Telegram
     let message = `🏠 <b>طلب عرض سعر جديد - YAM</b>\n\n`;
@@ -44,7 +51,7 @@ export async function POST(request: NextRequest) {
     message += `• عدد الغرف: ${data.rooms.length}\n`;
     message += `• عدد الميزات المختارة: ${data.totalFeatures}\n`;
     message += `• الباقة: ${data.selectedPackage}\n`;
-    message += `• رقم الطلب: #${quotation.id}\n\n`;
+    message += `• رقم الطلب: ${quotationId ? '#' + quotationId : '#-'}\n\n`;
 
     message += `👤 <b>بيانات العميل:</b>\n`;
     message += `• الاسم: ${data.fullName}\n`;
@@ -92,7 +99,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message: 'تم إرسال الطلب بنجاح إلى الفريق',
-      quotationId: quotation.id,
+      quotationId: quotationId ?? null,
       telegramMessageId: result.result.message_id,
     });
   } catch (error) {

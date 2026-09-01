@@ -1,0 +1,16 @@
+export const appColors = {
+  bg: '#EDF2F7',
+  panel: '#F2FFFFFF',
+  white: '#FFFFFF',
+  brand: '#143A87',
+  brand2: '#1C4EC8',
+  brand3: '#1A5AE7',
+  accent: '#2A6DF6',
+  text: '#101828',
+  muted: '#4F5D6F',
+  line: '#14111827',
+  green: '#18B86A',
+  softBlue: '#144E6DDB',
+  validationBg: '#FAECEC',
+  validationText: '#8B1E1E',
+};

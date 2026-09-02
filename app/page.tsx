@@ -835,6 +835,7 @@ export default function Page() {
           email,
           selectedPackage: packageOptions.find(o => o.id === selectedPackage)?.title || selectedPackage,
           totalFeatures: totalSelectedFeatures,
+          finalPrice: estimatedPrice,
         }),
       });
 

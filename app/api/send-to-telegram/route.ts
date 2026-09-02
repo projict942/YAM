@@ -13,12 +13,21 @@ interface QuotationData {
     count: number;
     selectedFeatures: string[];
   }>;
+  selectedProducts?: string[];
   fullName: string;
   phoneNumber: string;
   email?: string;
   selectedPackage: string;
   totalFeatures: number;
+  finalPrice?: number;
 }
+
+const formatCurrency = (value: number) =>
+  new Intl.NumberFormat('ar-EG', {
+    style: 'currency',
+    currency: 'EGP',
+    maximumFractionDigits: 0,
+  }).format(value || 0);
 
 export async function POST(request: NextRequest) {
   try {
@@ -35,14 +44,21 @@ export async function POST(request: NextRequest) {
     const quotationId = Date.now();
 
     // Format the message for Telegram
+    const totalRoomUnits = data.rooms.reduce((sum, room) => sum + room.count, 0);
+    const selectedProducts = data.selectedProducts?.filter(Boolean) ?? [];
+
     let message = `🏠 <b>طلب عرض سعر جديد - YAM</b>\n\n`;
-    
+
     message += `📋 <b>معلومات الطلب:</b>\n`;
     message += `• طريقة التواصل: ${data.serviceType}\n`;
     message += `• المساحة: ${data.propertyArea} متر مربع\n`;
-    message += `• عدد الغرف: ${data.rooms.length}\n`;
+    message += `• عدد الغرف: ${totalRoomUnits}\n`;
     message += `• عدد الميزات المختارة: ${data.totalFeatures}\n`;
     message += `• الباقة: ${data.selectedPackage}\n`;
+    message += `• السعر النهائي: ${formatCurrency(data.finalPrice ?? 0)}\n`;
+    if (selectedProducts.length > 0) {
+      message += `• المنتجات المختارة: ${selectedProducts.join(', ')}\n`;
+    }
     message += `• رقم الطلب: ${quotationId ? '#' + quotationId : '#-'}\n\n`;
 
     message += `👤 <b>بيانات العميل:</b>\n`;
@@ -62,6 +78,10 @@ export async function POST(request: NextRequest) {
         });
       }
     });
+
+    if (!data.rooms.some((room) => room.count > 0 && room.selectedFeatures.length > 0)) {
+      message += `• لا توجد ميزات محددة بعد\n`;
+    }
 
     message += `\n⏰ <i>تم الاستقبال بتاريخ: ${new Date().toLocaleString('ar-SA')}</i>`;
 

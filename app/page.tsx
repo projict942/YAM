@@ -859,7 +859,7 @@ export default function Page() {
         <div className="landing-panel">
           <div className="landing-card">
             <div className="landing-topbar">
-              <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788309126/WhatsApp_Image_2026-09-02_at_12.08.45_AM_vf0ulu.png" alt="YAM logo" className="yam-logo" />
+              <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788311465/Gemini_Generated_Image_hvc3qkhvc3qkhvc3_zdrske.png" alt="YAM logo" className="yam-logo" />
               <button
                 type="button"
                 className="language-toggle"
@@ -940,7 +940,7 @@ export default function Page() {
                 <div className="brand-tagline">YAM Smart Home • Automation • Security</div>
               </div>
               <div className="header-branding">
-                <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788309126/WhatsApp_Image_2026-09-02_at_12.08.45_AM_vf0ulu.png" alt="YAM logo" className="brand-pill" />
+                <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788311465/Gemini_Generated_Image_hvc3qkhvc3qkhvc3_zdrske.png" alt="YAM logo" className="brand-pill" />
                 <button
                   type="button"
                   className="language-toggle"

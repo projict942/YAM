@@ -4,9 +4,9 @@
   --bg: #edf4ff;
   --panel: rgba(255, 255, 255, 0.72);
   --panel-strong: #ffffff;
-  --primary: #1c4ec8;
-  --primary-deep: #143a87;
-  --primary-soft: rgba(28, 78, 200, 0.12);
+  --primary: #0d3a93;
+  --primary-deep: #0a1d5f;
+  --primary-soft: rgba(13, 58, 147, 0.12);
   --text: #101828;
   --muted: #52627a;
   --line: rgba(16, 24, 40, 0.12);
@@ -119,6 +119,11 @@ img {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 26px;
+  padding: 12px 18px;
+  border: 1px solid rgba(28, 78, 200, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(28, 78, 200, 0.10), rgba(85, 133, 245, 0.18), rgba(28, 78, 200, 0.10));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
 .landing-content {
@@ -202,7 +207,7 @@ img {
 
 .preview-card {
   width: min(100%, 350px);
-  background: linear-gradient(180deg, rgba(20, 58, 135, 0.98), rgba(18, 31, 64, 0.96));
+  background: linear-gradient(180deg, rgba(14, 39, 108, 0.99), rgba(8, 19, 58, 0.99));
   color: white;
   border-radius: 24px;
   padding: 20px 18px;

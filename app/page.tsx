@@ -1,6 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from 'react';
+import type { CatalogPayload, CatalogProduct } from '@/lib/catalog';
+
+type ProductSelection = {
+  productId: string;
+  variantId: string;
+  quantity: number;
+};
 
 type SubFeatureItem = {
   id: string;
@@ -504,7 +511,11 @@ export default function Page() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [selectedPackage, setSelectedPackage] = useState('standard');
-  const [selectedCameraModels, setSelectedCameraModels] = useState<string[]>([]);
+  const [catalog, setCatalog] = useState<CatalogPayload | null>(null);
+  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  const [selectedSubCategoryId, setSelectedSubCategoryId] = useState('all');
+  const [selectedBrandId, setSelectedBrandId] = useState('all');
+  const [selectedProductLines, setSelectedProductLines] = useState<ProductSelection[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
@@ -519,6 +530,16 @@ export default function Page() {
   ]);
 
   const isArabic = language === 'ar';
+
+  useEffect(() => {
+    fetch('/api/catalog')
+      .then((response) => response.json())
+      .then((payload: CatalogPayload) => {
+        setCatalog(payload);
+        setSelectedCategoryId(payload.categories[0]?.id ?? '');
+      })
+      .catch((error) => console.error('Catalog loading error:', error));
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -558,15 +579,17 @@ export default function Page() {
   );
 
   const estimatedPrice = useMemo(() => {
-    const selectedProductTotal = selectedCameraModels.reduce((sum, cameraId) => {
-      return sum + (selectedProductPriceMap[cameraId] ?? 0);
+    const selectedProductTotal = selectedProductLines.reduce((sum, line) => {
+      const product = catalog?.products.find((item) => item.id === line.productId);
+      const variant = product?.variants.find((item) => item.id === line.variantId);
+      return sum + (variant?.price ?? 0) * line.quantity;
     }, 0);
 
     const featureTotal = selectedFeatureValue;
     const base = selectedProductTotal + featureTotal;
 
     return Math.round(base || 0);
-  }, [selectedCameraModels, selectedFeatureValue]);
+  }, [catalog, selectedProductLines, selectedFeatureValue]);
 
   const nextStep = () => {
     if (step === 2 && (!propertyArea || Number(propertyArea) <= 0)) {
@@ -647,17 +670,37 @@ export default function Page() {
   };
 
   const localizedRoomName = (roomId: string) => getRoomName(roomId, isArabic);
-  const selectedCameraOptions = useMemo(
-    () => cameraCatalogSections.flatMap((section) => section.items).filter((item) => selectedCameraModels.includes(item.id)),
-    [selectedCameraModels],
+  const selectedProductLinesWithDetails = useMemo(
+    () => selectedProductLines.map((line) => {
+      const product = catalog?.products.find((item) => item.id === line.productId);
+      const variant = product?.variants.find((item) => item.id === line.variantId);
+      return { ...line, product, variant };
+    }).filter((line) => line.product && line.variant),
+    [catalog, selectedProductLines],
   );
 
-  const toggleCameraModel = (cameraId: string) => {
-    setSelectedCameraModels((previous) =>
-      previous.includes(cameraId)
-        ? previous.filter((id) => id !== cameraId)
-        : [...previous, cameraId],
-    );
+  const visibleSubCategories = catalog?.subCategories.filter((item) => item.categoryId === selectedCategoryId) ?? [];
+  const visibleProducts = catalog?.products.filter((product) =>
+    product.categoryId === selectedCategoryId &&
+    (selectedSubCategoryId === 'all' || product.subCategoryId === selectedSubCategoryId) &&
+    (selectedBrandId === 'all' || product.brandId === selectedBrandId),
+  ) ?? [];
+
+  const updateProductQuantity = (product: CatalogProduct, variantId: string, delta: number) => {
+    setSelectedProductLines((previous) => {
+      const existing = previous.find((line) => line.productId === product.id && line.variantId === variantId);
+      if (!existing && delta < 0) return previous;
+      if (!existing) return [...previous, { productId: product.id, variantId, quantity: 1 }];
+
+      const nextQuantity = existing.quantity + delta;
+      if (nextQuantity <= 0) {
+        return previous.filter((line) => !(line.productId === product.id && line.variantId === variantId));
+      }
+
+      return previous.map((line) => line.productId === product.id && line.variantId === variantId
+        ? { ...line, quantity: nextQuantity }
+        : line);
+    });
   };
 
   const sendLeadToTelegram = async (name: string, phone: string) => {
@@ -829,7 +872,15 @@ export default function Page() {
           serviceType: serviceOptions.find(o => o.id === serviceType)?.title || serviceType,
           propertyArea: Number(propertyArea),
           rooms: roomsData,
-          selectedProducts: selectedCameraOptions.map((item) => item.name),
+          selectedProducts: selectedProductLinesWithDetails.map(({ product, variant, quantity }) => `${product!.name} - ${variant!.label} x ${quantity}`),
+          selectedProductLines: selectedProductLinesWithDetails.map(({ product, variant, quantity }) => ({
+            productName: product!.name,
+            brandName: catalog?.brands.find((brand) => brand.id === product!.brandId)?.name || '',
+            variantLabel: variant!.label,
+            quantity,
+            unitPrice: variant!.price,
+            totalPrice: variant!.price * quantity,
+          })),
           fullName,
           phoneNumber,
           email,
@@ -860,7 +911,7 @@ export default function Page() {
         <div className="landing-panel">
           <div className="landing-card">
             <div className="landing-topbar">
-              <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788311465/Gemini_Generated_Image_hvc3qkhvc3qkhvc3_zdrske.png" alt="YAM logo" className="yam-logo" />
+              <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" className="yam-logo" />
               <button
                 type="button"
                 className="language-toggle"
@@ -941,7 +992,7 @@ export default function Page() {
                 <div className="brand-tagline">YAM Smart Home • Automation • Security</div>
               </div>
               <div className="header-branding">
-                <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788311465/Gemini_Generated_Image_hvc3qkhvc3qkhvc3_zdrske.png" alt="YAM logo" className="brand-pill" />
+                <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" className="brand-pill" />
                 <button
                   type="button"
                   className="language-toggle"
@@ -1240,60 +1291,94 @@ export default function Page() {
                   <div className="step-head">
                     <span className="step-eyebrow">{isArabic ? 'الخطوة 5 من 8' : 'Step 5 of 8'}</span>
                     <h3>{isArabic ? 'اختر المنتجات المطلوبة' : 'Choose the required products'}</h3>
-                    <p>{isArabic ? 'يمكنك تحديد أكثر من منتج، وسيتم جمعها في الملخص النهائي.' : 'You can select more than one product, and they will be collected in the final summary.'}</p>
+                    <p>{isArabic ? 'فلتر حسب القسم والبراند، ثم اختر أكثر من مواصفة للمنتج نفسه بكميات مختلفة.' : 'Filter by category and brand, then choose multiple variants of the same product with different quantities.'}</p>
                   </div>
 
-                  {selectedCameraOptions.length > 0 && (
+                  <div className="catalog-category-tabs" style={{ marginTop: 22 }}>
+                    {catalog?.categories.map((category) => (
+                      <button
+                        key={category.id}
+                        type="button"
+                        className={selectedCategoryId === category.id ? 'active' : ''}
+                        onClick={() => {
+                          setSelectedCategoryId(category.id);
+                          setSelectedSubCategoryId('all');
+                        }}
+                      >
+                        <span className="material-symbols-rounded">{category.icon}</span>
+                        {category.name}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="catalog-filter-row">
+                    <div className="catalog-tabs">
+                      <button type="button" className={selectedSubCategoryId === 'all' ? 'active' : ''} onClick={() => setSelectedSubCategoryId('all')}>
+                        {isArabic ? 'الكل' : 'All'}
+                      </button>
+                      {visibleSubCategories.map((subCategory) => (
+                        <button key={subCategory.id} type="button" className={selectedSubCategoryId === subCategory.id ? 'active' : ''} onClick={() => setSelectedSubCategoryId(subCategory.id)}>
+                          {subCategory.name}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="catalog-brand-filter" aria-label={isArabic ? 'فلترة البراند' : 'Filter by brand'}>
+                      <button type="button" className={selectedBrandId === 'all' ? 'active' : ''} onClick={() => setSelectedBrandId('all')}>
+                        {isArabic ? 'كل البراندات' : 'All brands'}
+                      </button>
+                      {catalog?.brands.map((brand) => (
+                        <button key={brand.id} type="button" className={selectedBrandId === brand.id ? 'active' : ''} onClick={() => setSelectedBrandId(brand.id)}>
+                          <img src={brand.logoUrl} alt={`${brand.name} logo`} onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+                          {brand.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {selectedProductLinesWithDetails.length > 0 && (
                     <div className="feature-group" style={{ marginTop: 22 }}>
                       <div className="feature-group-title">
                         <span className="material-symbols-rounded">check_circle</span>
                         <span>{isArabic ? 'المنتجات المختارة' : 'Selected products'}</span>
                       </div>
                       <div className="feature-grid" style={{ marginTop: 10 }}>
-                        {selectedCameraOptions.map((item) => (
-                          <button
-                            key={item.id}
-                            type="button"
-                            className="feature-item selected"
-                            style={{ pointerEvents: 'auto', textAlign: 'left' }}
-                            onClick={() => toggleCameraModel(item.id)}
-                          >
-                            <span className="feature-icon material-symbols-rounded">check_circle</span>
+                        {selectedProductLinesWithDetails.map(({ product, variant, quantity }) => (
+                          <div key={`${product!.id}-${variant!.id}`} className="feature-item selected product-line-card">
                             <span className="feature-content">
-                              <strong>{item.name}</strong>
-                              <small>{item.description}</small>
+                              <strong>{product!.name}</strong>
+                              <small>{variant!.label} · {formatCurrency(variant!.price * quantity, isArabic)}</small>
                             </span>
-                          </button>
+                            <div className="feature-quantity-row">
+                              <button type="button" onClick={() => updateProductQuantity(product!, variant!.id, -1)} className="material-symbols-rounded" aria-label="تقليل">remove</button>
+                              <span className="feature-quantity-value">{quantity}</span>
+                              <button type="button" onClick={() => updateProductQuantity(product!, variant!.id, 1)} className="material-symbols-rounded" aria-label="زيادة">add</button>
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </div>
                   )}
 
                   <div className="option-grid" style={{ marginTop: 22 }}>
-                    {cameraCatalogSections.map((section) => (
-                      <div key={section.title} style={{ gridColumn: '1 / -1' }}>
-                        <div className="feature-group-title" style={{ marginBottom: 12 }}>
-                          <span className="material-symbols-rounded">security</span>
-                          <span>{section.title}</span>
-                        </div>
-
-                        <div className="option-grid" style={{ marginTop: 8 }}>
-                          {section.items.map((item) => {
-                            const isSelected = selectedCameraModels.includes(item.id);
+                    {visibleProducts.map((product) => (
+                      <div key={product.id} className="catalog-product-card">
+                        <img src={product.imageUrl} alt="" className="catalog-product-image" />
+                        <div className="catalog-product-body">
+                          <div className="catalog-product-brand">{catalog?.brands.find((brand) => brand.id === product.brandId)?.name}</div>
+                          <strong>{product.name}</strong>
+                          <small>{product.description}</small>
+                          {product.variants.map((variant) => {
+                            const selection = selectedProductLines.find((line) => line.productId === product.id && line.variantId === variant.id);
                             return (
-                              <button
-                                key={item.id}
-                                type="button"
-                                className={`option-card ${isSelected ? 'active' : ''}`}
-                                onClick={() => toggleCameraModel(item.id)}
-                                style={{ textAlign: 'left', alignItems: 'flex-start' }}
-                              >
-                                <span className="option-icon material-symbols-rounded">videocam</span>
-                                <span className="option-copy">
-                                  <strong>{item.name}</strong>
-                                  <small>{item.description}</small>
-                                </span>
-                              </button>
+                              <div key={variant.id} className="variant-row">
+                                <span>{variant.label}</span>
+                                <span>{formatCurrency(variant.price, isArabic)}</span>
+                                <div className="feature-quantity-row">
+                                  <button type="button" onClick={() => updateProductQuantity(product, variant.id, -1)} className="material-symbols-rounded" aria-label="تقليل">remove</button>
+                                  <span className="feature-quantity-value">{selection?.quantity ?? 0}</span>
+                                  <button type="button" onClick={() => updateProductQuantity(product, variant.id, 1)} className="material-symbols-rounded" aria-label="زيادة">add</button>
+                                </div>
+                              </div>
                             );
                           })}
                         </div>
@@ -1399,7 +1484,7 @@ export default function Page() {
                               <span className="feature-icon material-symbols-rounded">videocam</span>
                               <span className="feature-content">
                                 <strong>{isArabic ? 'المنتجات المختارة' : 'Selected products'}</strong>
-                                <small>{selectedCameraOptions.length ? selectedCameraOptions.map((item) => item.name).join(' • ') : (isArabic ? 'لا يوجد منتج محدد' : 'No product selected')}</small>
+                                <small>{selectedProductLinesWithDetails.length ? `${selectedProductLinesWithDetails.length} ${isArabic ? 'مواصفة' : 'line items'}` : (isArabic ? 'لا يوجد منتج محدد' : 'No product selected')}</small>
                               </span>
                             </div>
                             <div className="feature-item selected summary-mini-card" style={{ pointerEvents: 'none' }}>
@@ -1416,6 +1501,36 @@ export default function Page() {
                                 <small>{getPackageTitle(selectedPackage, isArabic)}</small>
                               </span>
                             </div>
+                          </div>
+                          <div className="summary-products-table-wrap">
+                            <table className="summary-products-table">
+                              <thead>
+                                <tr>
+                                  <th>{isArabic ? 'المنتج' : 'Product'}</th>
+                                  <th>{isArabic ? 'البراند' : 'Brand'}</th>
+                                  <th>{isArabic ? 'المواصفة' : 'Variant'}</th>
+                                  <th>{isArabic ? 'الكمية' : 'Qty'}</th>
+                                  <th>{isArabic ? 'الإجمالي' : 'Total'}</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {selectedProductLinesWithDetails.map(({ product, variant, quantity }) => (
+                                  <tr key={`${product!.id}-${variant!.id}`}>
+                                    <td>{product!.name}</td>
+                                    <td>{catalog?.brands.find((brand) => brand.id === product!.brandId)?.name}</td>
+                                    <td>{variant!.label}</td>
+                                    <td>{quantity}</td>
+                                    <td>{formatCurrency(variant!.price * quantity, isArabic)}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                  <td colSpan={4}>{isArabic ? 'إجمالي المنتجات' : 'Products total'}</td>
+                                  <td>{formatCurrency(selectedProductLinesWithDetails.reduce((sum, line) => sum + line.variant!.price * line.quantity, 0), isArabic)}</td>
+                                </tr>
+                              </tfoot>
+                            </table>
                           </div>
                         </div>
                       </div>
@@ -1441,7 +1556,7 @@ export default function Page() {
                 <div className="summary-item"><span>{isArabic ? 'المساحة' : 'Area'}</span><strong>{propertyArea || 0} م²</strong></div>
                 <div className="summary-item"><span>{isArabic ? 'الغرف' : 'Rooms'}</span><strong>{activeRooms.length}</strong></div>
                 <div className="summary-item"><span>{isArabic ? 'الميزات' : 'Features'}</span><strong>{totalSelectedFeatures}</strong></div>
-                <div className="summary-item"><span>{isArabic ? 'المنتجات المختارة' : 'Selected products'}</span><strong>{selectedCameraModels.length ? selectedCameraModels.length : 0}</strong></div>
+                <div className="summary-item"><span>{isArabic ? 'المواصفات المختارة' : 'Selected variants'}</span><strong>{selectedProductLinesWithDetails.length}</strong></div>
               </div>
               <div className="summary-footer-note">
                 {isArabic ? 'تم إعداد العرض بناءً على متطلبات المشروع المختارة.' : 'This estimate is tailored to your selected smart-home requirements.'}
@@ -1473,17 +1588,6 @@ export default function Page() {
             </div>
           )}
 
-          <div className="contact-strip">
-            <h4>{isArabic ? 'تواصل معنا' : 'Contact us'}</h4>
-            <div className="contact-strip-grid">
-              <div className="contact-item"><span className="material-symbols-rounded">call</span> 01116107777</div>
-              <div className="contact-item"><span className="material-symbols-rounded">call</span> 01116041111</div>
-              <div className="contact-item"><span className="material-symbols-rounded">call</span> 01002081073</div>
-              <div className="contact-item"><span className="material-symbols-rounded">mail</span> yam4lcs@gmail.com</div>
-              <div className="contact-item"><span className="material-symbols-rounded">location_on</span> {isArabic ? 'القاهرة، الخليفة' : 'Cairo, Khalifa'}</div>
-              <div className="contact-item"><span className="material-symbols-rounded">person</span> {isArabic ? 'المهندس: SEO Ahmed Moustafa' : 'Engineer: SEO Ahmed Moustafa'}</div>
-            </div>
-          </div>
         </section>
       </div>
     )}

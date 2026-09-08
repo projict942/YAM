@@ -14,6 +14,14 @@ interface QuotationData {
     selectedFeatures: string[];
   }>;
   selectedProducts?: string[];
+  selectedProductLines?: Array<{
+    productName: string;
+    brandName: string;
+    variantLabel: string;
+    quantity: number;
+    unitPrice: number;
+    totalPrice: number;
+  }>;
   fullName: string;
   phoneNumber: string;
   email?: string;
@@ -46,6 +54,7 @@ export async function POST(request: NextRequest) {
     // Format the message for Telegram
     const totalRoomUnits = data.rooms.reduce((sum, room) => sum + room.count, 0);
     const selectedProducts = data.selectedProducts?.filter(Boolean) ?? [];
+    const selectedProductLines = data.selectedProductLines ?? [];
 
     let message = `🏠 <b>طلب عرض سعر جديد - YAM</b>\n\n`;
 
@@ -81,6 +90,13 @@ export async function POST(request: NextRequest) {
 
     if (!data.rooms.some((room) => room.count > 0 && room.selectedFeatures.length > 0)) {
       message += `• لا توجد ميزات محددة بعد\n`;
+    }
+
+    if (selectedProductLines.length > 0) {
+      message += `\n🧾 <b>جدول المنتجات والأسعار:</b>\n`;
+      selectedProductLines.forEach((line) => {
+        message += `• ${line.productName} | ${line.brandName} | ${line.variantLabel} | كمية: ${line.quantity} | ${formatCurrency(line.totalPrice)}\n`;
+      });
     }
 
     message += `\n⏰ <i>تم الاستقبال بتاريخ: ${new Date().toLocaleString('ar-SA')}</i>`;

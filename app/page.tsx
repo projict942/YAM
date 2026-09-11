@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import type { CatalogPayload, CatalogProduct } from '@/lib/catalog';
+import { CATEGORIES, getCleanProducts } from '@/lib/productsUtils';
 
 type ProductSelection = {
   productId: string;
@@ -535,8 +536,14 @@ export default function Page() {
     fetch('/api/catalog')
       .then((response) => response.json())
       .then((payload: CatalogPayload) => {
-        setCatalog(payload);
-        setSelectedCategoryId(payload.categories[0]?.id ?? '');
+        const cleanProducts = getCleanProducts(payload.products);
+        const normalizedPayload: CatalogPayload = {
+          ...payload,
+          categories: CATEGORIES,
+          products: cleanProducts,
+        };
+        setCatalog(normalizedPayload);
+        setSelectedCategoryId('all');
       })
       .catch((error) => console.error('Catalog loading error:', error));
   }, []);
@@ -606,7 +613,14 @@ export default function Page() {
     setStep((prev) => Math.min(prev + 1, totalSteps));
   };
 
-  const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
+  const prevStep = () => {
+    if (step === 1) {
+      setShowLanding(true);
+      return;
+    }
+
+    setStep((prev) => Math.max(prev - 1, 1));
+  };
 
   const updateRoomCount = (roomId: string, delta: number) => {
     setRooms((prev) =>
@@ -679,9 +693,11 @@ export default function Page() {
     [catalog, selectedProductLines],
   );
 
-  const visibleSubCategories = catalog?.subCategories.filter((item) => item.categoryId === selectedCategoryId) ?? [];
+  const visibleSubCategories = catalog?.subCategories.filter((item) =>
+    selectedCategoryId === 'all' || item.categoryId === selectedCategoryId,
+  ) ?? [];
   const visibleProducts = catalog?.products.filter((product) =>
-    product.categoryId === selectedCategoryId &&
+    (selectedCategoryId === 'all' || product.categoryId === selectedCategoryId) &&
     (selectedSubCategoryId === 'all' || product.subCategoryId === selectedSubCategoryId) &&
     (selectedBrandId === 'all' || product.brandId === selectedBrandId),
   ) ?? [];
@@ -1307,7 +1323,7 @@ export default function Page() {
                         }}
                       >
                         <span className="material-symbols-rounded">{category.icon}</span>
-                        {category.name}
+                        {isArabic ? category.nameAr ?? category.name : category.nameEn ?? category.name}
                       </button>
                     ))}
                   </div>
@@ -1368,6 +1384,7 @@ export default function Page() {
                           <div className="catalog-product-brand">{catalog?.brands.find((brand) => brand.id === product.brandId)?.name}</div>
                           <strong>{product.name}</strong>
                           <small>{product.description}</small>
+                          <small>{isArabic ? product.displayPriceAr ?? product.displayPrice : product.displayPriceEn ?? product.displayPrice}</small>
                           {product.variants.map((variant) => {
                             const selection = selectedProductLines.find((line) => line.productId === product.id && line.variantId === variant.id);
                             return (
@@ -1537,8 +1554,6 @@ export default function Page() {
                 type="button"
                 className="btn btn-outline"
                 onClick={prevStep}
-                disabled={step === 1}
-                style={{ opacity: step === 1 ? 0.45 : 1, cursor: step === 1 ? 'not-allowed' : 'pointer' }}
               >
                 {isArabic ? 'رجوع' : 'Back'}
               </button>

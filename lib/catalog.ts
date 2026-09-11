@@ -2,6 +2,8 @@ export type CatalogCategory = {
   id: string;
   name: string;
   icon: string;
+  nameAr?: string;
+  nameEn?: string;
 };
 
 export type CatalogSubCategory = {
@@ -30,6 +32,9 @@ export type CatalogProduct = {
   brandId: string;
   categoryId: string;
   subCategoryId: string;
+  displayPrice?: string;
+  displayPriceAr?: string;
+  displayPriceEn?: string;
   variants: CatalogVariant[];
 };
 

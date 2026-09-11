@@ -163,38 +163,6 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-07-pro-0",
-                         "name":  "CORDLESS CL-07 PRO: قفل ذكي بمقبض حديث وشاشة عرض مدمجة مع عدة طرق للفتح.",
-                         "categoryId":  "smart-home",
-                         "description":  "CORDLESS product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "CL-07 PRO: قفل ذكي بمقبض حديث وشاشة عرض مدمجة مع عدة طرق للفتح.",
-                                              "price":  0,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-07-pro-0-default"
-                                          }
-                                      ],
-                         "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/1.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-07-plus-1",
-                         "name":  "CORDLESS CL-07 PLUS: قفل ذكي بتصميم انسيابي مع كاميرا وشاشة عرض خارجية.",
-                         "categoryId":  "smart-home",
-                         "description":  "CORDLESS product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "CL-07 PLUS: قفل ذكي بتصميم انسيابي مع كاميرا وشاشة عرض خارجية.",
-                                              "price":  0,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-07-plus-1-default"
-                                          }
-                                      ],
-                         "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/10.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
                          "id":  "cordless-cordless-smart-home-smart-all-cl-g2-2",
                          "name":  "CORDLESS CL-G2: قفل ذكي فاخر مزود بكاميرا مراقبة عالية الدقة وشاشة عرض",
                          "categoryId":  "smart-home",
@@ -207,7 +175,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/11.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/3.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -223,7 +191,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/12.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/4.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -239,7 +207,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/13.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/5.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -255,7 +223,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/14.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/6.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -271,7 +239,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/15.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/7.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -287,7 +255,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/16.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/8.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -303,7 +271,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/17.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/9.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -319,7 +287,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/18.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/10.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -335,7 +303,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/19.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/11.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -351,7 +319,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/2.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/12.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -367,7 +335,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/20.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/13.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -383,7 +351,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/21.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/14.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -399,7 +367,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/22.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/15.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -415,7 +383,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/23.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/16.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -431,7 +399,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/24.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/17.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -447,7 +415,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/25.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/18.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -463,7 +431,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/26.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/19.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -479,7 +447,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/27.2.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/20.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -495,7 +463,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/28.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/21.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -511,7 +479,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/29.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/22.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -527,7 +495,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/3.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/23.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -543,7 +511,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/31.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/24.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -559,7 +527,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/32.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/25.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -575,7 +543,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/33.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/26.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -591,7 +559,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/34.webp",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/27.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -607,7 +575,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/35.jpg",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/28.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -623,27 +591,11 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/36.jpg",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/29.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-zhub-zigbee-gateway-zigbee-29",
-                         "name":  "CORDLESS CL-ZHUB (Zigbee Gateway): موزع ومخرج إشارات Zigbee لربط أجهزة المنظومة",
-                         "categoryId":  "smart-home",
-                         "description":  "CORDLESS product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "CL-ZHUB (Zigbee Gateway): موزع ومخرج إشارات Zigbee لربط أجهزة المنظومة",
-                                              "price":  2800,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-zhub-zigbee-gateway-zigbee-29-default"
-                                          }
-                                      ],
-                         "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/37.jpg",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-2zm-intelligent-circuit-breaker-2-way-zigbee-30",
+                         "id":  "cordless-cordless-smart-home-smart-all-cl-2zm-intelligent-circuit-breaker-2-way-zigbee-29",
                          "name":  "CORDLESS CL-2ZM Intelligent Circuit Breaker 2-Way (Zigbee): قاطع ذكي خطين بتقنية زيجبي.",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -651,15 +603,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "CL-2ZM Intelligent Circuit Breaker 2-Way (Zigbee): قاطع ذكي خطين بتقنية زيجبي.",
                                               "price":  950,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-2zm-intelligent-circuit-breaker-2-way-zigbee-30-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-cl-2zm-intelligent-circuit-breaker-2-way-zigbee-29-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/39.jpg",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/31.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-3zm-intelligent-circuit-breaker-3-way-zigbee-3-31",
+                         "id":  "cordless-cordless-smart-home-smart-all-cl-3zm-intelligent-circuit-breaker-3-way-zigbee-3-30",
                          "name":  "CORDLESS CL-3ZM Intelligent Circuit Breaker 3-Way (Zigbee): قاطع ذكي 3 خطوط بتقنية زيجبي.",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -667,15 +619,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "CL-3ZM Intelligent Circuit Breaker 3-Way (Zigbee): قاطع ذكي 3 خطوط بتقنية زيجبي.",
                                               "price":  1050,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-3zm-intelligent-circuit-breaker-3-way-zigbee-3-31-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-cl-3zm-intelligent-circuit-breaker-3-way-zigbee-3-30-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/4.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/32.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-4zm-intelligent-circuit-breaker-4-way-zigbee-4-32",
+                         "id":  "cordless-cordless-smart-home-smart-all-cl-4zm-intelligent-circuit-breaker-4-way-zigbee-4-31",
                          "name":  "CORDLESS CL-4ZM Intelligent Circuit Breaker 4-Way (Zigbee): قاطع ذكي 4 خطوط بتقنية زيجبي.",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -683,15 +635,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "CL-4ZM Intelligent Circuit Breaker 4-Way (Zigbee): قاطع ذكي 4 خطوط بتقنية زيجبي.",
                                               "price":  1150,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-4zm-intelligent-circuit-breaker-4-way-zigbee-4-32-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-cl-4zm-intelligent-circuit-breaker-4-way-zigbee-4-31-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/40.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/33.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-3-33",
+                         "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-3-32",
                          "name":  "CORDLESS CL-03G Smart Touch Wall Switch 3-Gang: مفتاح حائطي زجاجي باللمس 3 خطوط (تصميم فلات).",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -699,15 +651,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "CL-03G Smart Touch Wall Switch 3-Gang: مفتاح حائطي زجاجي باللمس 3 خطوط (تصميم فلات).",
                                               "price":  1300,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-3-33-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-3-32-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/41.1.webp",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/34.webp",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-02g-smart-touch-wall-switch-2-gang-groove-groove-34",
+                         "id":  "cordless-cordless-smart-home-smart-all-cl-02g-smart-touch-wall-switch-2-gang-groove-groove-33",
                          "name":  "CORDLESS CL-02G Smart Touch Wall Switch 2-Gang (Groove): مفتاح حائطي باللمس خطين بتصميم محفور (Groove) ومحيط معدني.",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -715,15 +667,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "CL-02G Smart Touch Wall Switch 2-Gang (Groove): مفتاح حائطي باللمس خطين بتصميم محفور (Groove) ومحيط معدني.",
                                               "price":  1300,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-02g-smart-touch-wall-switch-2-gang-groove-groove-34-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-cl-02g-smart-touch-wall-switch-2-gang-groove-groove-33-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/42.webp",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/35.jpg",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-groove-3-groove-35",
+                         "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-groove-3-groove-34",
                          "name":  "CORDLESS CL-03G Smart Touch Wall Switch 3-Gang (Groove): مفتاح حائطي باللمس 3 خطوط بتصميم محفور (Groove).",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -731,15 +683,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "CL-03G Smart Touch Wall Switch 3-Gang (Groove): مفتاح حائطي باللمس 3 خطوط بتصميم محفور (Groove).",
                                               "price":  1500,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-groove-3-groove-35-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-cl-03g-smart-touch-wall-switch-3-gang-groove-3-groove-34-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/43.jpg",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/36.jpg",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-04g-smart-touch-wall-switch-4-gang-groove-4-groove-36",
+                         "id":  "cordless-cordless-smart-home-smart-all-cl-04g-smart-touch-wall-switch-4-gang-groove-4-groove-35",
                          "name":  "CORDLESS CL-04G Smart Touch Wall Switch 4-Gang (Groove): مفتاح حائطي باللمس 4 خطوط بتصميم محفور (Groove).",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -747,31 +699,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "CL-04G Smart Touch Wall Switch 4-Gang (Groove): مفتاح حائطي باللمس 4 خطوط بتصميم محفور (Groove).",
                                               "price":  1680,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-04g-smart-touch-wall-switch-4-gang-groove-4-groove-36-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-cl-04g-smart-touch-wall-switch-4-gang-groove-4-groove-35-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/5.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/37.jpg",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-cl-u1-usb-infrared-intelligent-controller-ir-rf-37",
-                         "name":  "CORDLESS CL-U1 USB Infrared Intelligent Controller: ريموت ذكي شامل يعمل بالأشعة تحت الحمراء والراديو (IR/RF).",
-                         "categoryId":  "smart-home",
-                         "description":  "CORDLESS product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "CL-U1 USB Infrared Intelligent Controller: ريموت ذكي شامل يعمل بالأشعة تحت الحمراء والراديو (IR/RF).",
-                                              "price":  920,
-                                              "id":  "cordless-cordless-smart-home-smart-all-cl-u1-usb-infrared-intelligent-controller-ir-rf-37-default"
-                                          }
-                                      ],
-                         "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/6.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-5-inch-5-38",
+                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-5-inch-5-36",
                          "name":  "CORDLESS Smart Control Panel 5-Inch: شاشة تحكم جدارية ذكية مقاس 5 بوصة.",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -779,15 +715,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "Smart Control Panel 5-Inch: شاشة تحكم جدارية ذكية مقاس 5 بوصة.",
                                               "price":  13000,
-                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-5-inch-5-38-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-5-inch-5-36-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/7.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/39.jpg",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-6-inch-6-knob-39",
+                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-6-inch-6-knob-37",
                          "name":  "CORDLESS Smart Control Panel 6-Inch: شاشة تحكم جدارية ذكية مقاس 6 بوصة مع بكيل تحكم دائرية (Knob).",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -795,15 +731,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "Smart Control Panel 6-Inch: شاشة تحكم جدارية ذكية مقاس 6 بوصة مع بكيل تحكم دائرية (Knob).",
                                               "price":  16000,
-                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-6-inch-6-knob-39-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-6-inch-6-knob-37-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/8.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/40.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-8-inch-8-40",
+                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-8-inch-8-38",
                          "name":  "CORDLESS Smart Control Panel 8-Inch: شاشة تحكم جدارية ذكية مقاس 8 بوصة.",
                          "categoryId":  "smart-home",
                          "description":  "CORDLESS product from the imported catalog.",
@@ -811,11 +747,43 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "Smart Control Panel 8-Inch: شاشة تحكم جدارية ذكية مقاس 8 بوصة.",
                                               "price":  22500,
-                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-8-inch-8-40-default"
+                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-8-inch-8-38-default"
                                           }
                                       ],
                          "brandId":  "cordless",
-                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/9.png",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/41.webp",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-10-inch-10-39",
+                         "name":  "CORDLESS Smart Control Panel 10-Inch: شاشة تحكم جدارية كبيرة مقاس 10 بوصة مع أزرار اختصار سفليّة.",
+                         "categoryId":  "smart-home",
+                         "description":  "CORDLESS product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "Smart Control Panel 10-Inch: شاشة تحكم جدارية كبيرة مقاس 10 بوصة مع أزرار اختصار سفليّة.",
+                                              "price":  26000,
+                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-10-inch-10-39-default"
+                                          }
+                                      ],
+                         "brandId":  "cordless",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/42.webp",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-10-inch-pro-10-40",
+                         "name":  "CORDLESS Smart Control Panel 10-Inch Pro: شاشة تحكم جدارية ذكية احترافية مقاس 10 بوصة (إصدار برو).",
+                         "categoryId":  "smart-home",
+                         "description":  "CORDLESS product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "Smart Control Panel 10-Inch Pro: شاشة تحكم جدارية ذكية احترافية مقاس 10 بوصة (إصدار برو).",
+                                              "price":  28000,
+                                              "id":  "cordless-cordless-smart-home-smart-all-smart-control-panel-10-inch-pro-10-40-default"
+                                          }
+                                      ],
+                         "brandId":  "cordless",
+                         "imageUrl":  "/catalog/CORDLESS/SMART%20HOME/Smart%20all/43.jpg",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -1235,22 +1203,6 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "cameras"
                      },
                      {
-                         "id":  "ezviz-ezviz-cctv-wifi-cam-item-6-5",
-                         "name":  "Ezviz Item 6",
-                         "categoryId":  "cctv",
-                         "description":  "Ezviz product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "Item 6",
-                                              "price":  0,
-                                              "id":  "ezviz-ezviz-cctv-wifi-cam-item-6-5-default"
-                                          }
-                                      ],
-                         "brandId":  "ezviz",
-                         "imageUrl":  "/catalog/Ezviz/CCTV/WIFI%20CAM/6.jpg",
-                         "subCategoryId":  "cameras"
-                     },
-                     {
                          "id":  "hikvision-hikvision-access-control-ds-k1t804aef-0",
                          "name":  "Hikvision Hikvision Standalone Access Control Terminal",
                          "categoryId":  "access",
@@ -1395,22 +1347,6 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "cameras"
                      },
                      {
-                         "id":  "hikvision-hikvision-cctv-ip-cams-ds-2cd2443g0-iw-3",
-                         "name":  "Hikvision Hikvision 4MP IP Indoor Cube Camera",
-                         "categoryId":  "cctv",
-                         "description":  "كاميرا داخلية 4 ميجا تدعم الـ Wi-Fi مع ميكروفون وسماعة وحساس حركة PIR مدمج.",
-                         "variants":  [
-                                          {
-                                              "label":  "DS-2CD2443G0-IW",
-                                              "price":  0,
-                                              "id":  "hikvision-hikvision-cctv-ip-cams-ds-2cd2443g0-iw-3-default"
-                                          }
-                                      ],
-                         "brandId":  "hikvision",
-                         "imageUrl":  "/catalog/Hikvision/CCTV/IP%20CAMS/4.jpg",
-                         "subCategoryId":  "cameras"
-                     },
-                     {
                          "id":  "hikvision-hikvision-cctv-ip-cams-ds-2cd2043g2-i-4",
                          "name":  "Hikvision Hikvision 4MP AcuSense Fixed Bullet Camera",
                          "categoryId":  "cctv",
@@ -1475,22 +1411,6 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "cameras"
                      },
                      {
-                         "id":  "hikvision-hikvision-cctv-ip-cams-item-9-8",
-                         "name":  "Hikvision Item 9",
-                         "categoryId":  "cctv",
-                         "description":  "Hikvision product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "Item 9",
-                                              "price":  0,
-                                              "id":  "hikvision-hikvision-cctv-ip-cams-item-9-8-default"
-                                          }
-                                      ],
-                         "brandId":  "hikvision",
-                         "imageUrl":  "/catalog/Hikvision/CCTV/IP%20CAMS/9.png",
-                         "subCategoryId":  "cameras"
-                     },
-                     {
                          "id":  "hikvision-hikvision-cctv-nvr-ds-7104ni-q1-4p-0",
                          "name":  "Hikvision Hikvision 4-Channel Value PoE NVR",
                          "categoryId":  "recorders",
@@ -1536,22 +1456,6 @@ export const importedCatalog: CatalogPayload = {
                                       ],
                          "brandId":  "hikvision",
                          "imageUrl":  "/catalog/Hikvision/CCTV/NVR/3.jpg",
-                         "subCategoryId":  "recorders"
-                     },
-                     {
-                         "id":  "hikvision-hikvision-cctv-nvr-ds-7732ni-k4-3",
-                         "name":  "Hikvision Hikvision 32-Channel 4K NVR",
-                         "categoryId":  "recorders",
-                         "description":  "Hikvision product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "DS-7732NI-K4",
-                                              "price":  0,
-                                              "id":  "hikvision-hikvision-cctv-nvr-ds-7732ni-k4-3-default"
-                                          }
-                                      ],
-                         "brandId":  "hikvision",
-                         "imageUrl":  "/catalog/Hikvision/CCTV/NVR/4.png",
                          "subCategoryId":  "recorders"
                      },
                      {
@@ -1616,22 +1520,6 @@ export const importedCatalog: CatalogPayload = {
                                       ],
                          "brandId":  "hilook",
                          "imageUrl":  "/catalog/HILOOK/CCTV/dvr/2.jpg",
-                         "subCategoryId":  "recorders"
-                     },
-                     {
-                         "id":  "hilook-hilook-cctv-dvr-item-3-2",
-                         "name":  "HILOOK Item 3",
-                         "categoryId":  "recorders",
-                         "description":  "HILOOK product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "Item 3",
-                                              "price":  0,
-                                              "id":  "hilook-hilook-cctv-dvr-item-3-2-default"
-                                          }
-                                      ],
-                         "brandId":  "hilook",
-                         "imageUrl":  "/catalog/HILOOK/CCTV/dvr/3.jpg",
                          "subCategoryId":  "recorders"
                      },
                      {
@@ -1759,7 +1647,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/10.png",
+                         "imageUrl":  "/catalog/levana/smart%20locks/2.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -1775,7 +1663,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/11.png",
+                         "imageUrl":  "/catalog/levana/smart%20locks/3.1.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -1791,11 +1679,11 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/12.png",
+                         "imageUrl":  "/catalog/levana/smart%20locks/4.1.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "levana-levana-smart-locks-2783-4",
+                         "id":  "levana-levana-smart-locks-2783-5",
                          "name":  "levana 2783",
                          "categoryId":  "smart-home",
                          "description":  "levana product from the imported catalog.",
@@ -1803,119 +1691,7 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2783",
                                               "price":  11210,
-                                              "id":  "levana-levana-smart-locks-2783-4-default"
-                                          }
-                                      ],
-                         "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/13.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "levana-levana-smart-locks-2779-2781-5",
-                         "name":  "levana 2779 / 2781",
-                         "categoryId":  "smart-home",
-                         "description":  "levana product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "2779 / 2781",
-                                              "price":  11742,
-                                              "id":  "levana-levana-smart-locks-2779-2781-5-default"
-                                          }
-                                      ],
-                         "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/14.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "levana-levana-smart-locks-2819-6",
-                         "name":  "levana 2819",
-                         "categoryId":  "smart-home",
-                         "description":  "levana product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "2819",
-                                              "price":  12721,
-                                              "id":  "levana-levana-smart-locks-2819-6-default"
-                                          }
-                                      ],
-                         "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/15.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "levana-levana-smart-locks-2784-2785-7",
-                         "name":  "levana 2784 / 2785",
-                         "categoryId":  "smart-home",
-                         "description":  "levana product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "2784 / 2785",
-                                              "price":  16145,
-                                              "id":  "levana-levana-smart-locks-2784-2785-7-default"
-                                          }
-                                      ],
-                         "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/2.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "levana-levana-smart-locks-2776-8",
-                         "name":  "levana 2776",
-                         "categoryId":  "smart-home",
-                         "description":  "levana product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "2776",
-                                              "price":  16537,
-                                              "id":  "levana-levana-smart-locks-2776-8-default"
-                                          }
-                                      ],
-                         "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/3.1.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "levana-levana-smart-locks-2817-9",
-                         "name":  "levana 2817",
-                         "categoryId":  "smart-home",
-                         "description":  "levana product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "2817",
-                                              "price":  23484,
-                                              "id":  "levana-levana-smart-locks-2817-9-default"
-                                          }
-                                      ],
-                         "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/4.1.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "levana-levana-smart-locks-2815-2778-10",
-                         "name":  "levana 2815 / 2778",
-                         "categoryId":  "smart-home",
-                         "description":  "levana product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "2815 / 2778",
-                                              "price":  24463,
-                                              "id":  "levana-levana-smart-locks-2815-2778-10-default"
-                                          }
-                                      ],
-                         "brandId":  "levana",
-                         "imageUrl":  "/catalog/levana/smart%20locks/4.2.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "levana-levana-smart-locks-2850-11",
-                         "name":  "levana 2850",
-                         "categoryId":  "smart-home",
-                         "description":  "levana product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "2850",
-                                              "price":  25441,
-                                              "id":  "levana-levana-smart-locks-2850-11-default"
+                                              "id":  "levana-levana-smart-locks-2783-5-default"
                                           }
                                       ],
                          "brandId":  "levana",
@@ -1923,15 +1699,15 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "levana-levana-smart-locks-2775-2833-12",
-                         "name":  "levana 2775 / 2833",
+                         "id":  "levana-levana-smart-locks-2779-2781-6",
+                         "name":  "levana 2779 / 2781",
                          "categoryId":  "smart-home",
                          "description":  "levana product from the imported catalog.",
                          "variants":  [
                                           {
-                                              "label":  "2775 / 2833",
-                                              "price":  26909,
-                                              "id":  "levana-levana-smart-locks-2775-2833-12-default"
+                                              "label":  "2779 / 2781",
+                                              "price":  11742,
+                                              "id":  "levana-levana-smart-locks-2779-2781-6-default"
                                           }
                                       ],
                          "brandId":  "levana",
@@ -1939,15 +1715,15 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "levana-levana-smart-locks-2773-13",
-                         "name":  "levana 2773",
+                         "id":  "levana-levana-smart-locks-2819-7",
+                         "name":  "levana 2819",
                          "categoryId":  "smart-home",
                          "description":  "levana product from the imported catalog.",
                          "variants":  [
                                           {
-                                              "label":  "2773",
-                                              "price":  35226,
-                                              "id":  "levana-levana-smart-locks-2773-13-default"
+                                              "label":  "2819",
+                                              "price":  12721,
+                                              "id":  "levana-levana-smart-locks-2819-7-default"
                                           }
                                       ],
                          "brandId":  "levana",
@@ -1955,15 +1731,15 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "levana-levana-smart-locks-2816-14",
-                         "name":  "levana 2816",
+                         "id":  "levana-levana-smart-locks-2784-2785-8",
+                         "name":  "levana 2784 / 2785",
                          "categoryId":  "smart-home",
                          "description":  "levana product from the imported catalog.",
                          "variants":  [
                                           {
-                                              "label":  "2816",
-                                              "price":  37183,
-                                              "id":  "levana-levana-smart-locks-2816-14-default"
+                                              "label":  "2784 / 2785",
+                                              "price":  16145,
+                                              "id":  "levana-levana-smart-locks-2784-2785-8-default"
                                           }
                                       ],
                          "brandId":  "levana",
@@ -1971,19 +1747,115 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "levana-levana-smart-locks-item-16-15",
-                         "name":  "levana Item 16",
+                         "id":  "levana-levana-smart-locks-2776-9",
+                         "name":  "levana 2776",
                          "categoryId":  "smart-home",
                          "description":  "levana product from the imported catalog.",
                          "variants":  [
                                           {
-                                              "label":  "Item 16",
-                                              "price":  0,
-                                              "id":  "levana-levana-smart-locks-item-16-15-default"
+                                              "label":  "2776",
+                                              "price":  16537,
+                                              "id":  "levana-levana-smart-locks-2776-9-default"
                                           }
                                       ],
                          "brandId":  "levana",
                          "imageUrl":  "/catalog/levana/smart%20locks/9.png",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "levana-levana-smart-locks-2817-10",
+                         "name":  "levana 2817",
+                         "categoryId":  "smart-home",
+                         "description":  "levana product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "2817",
+                                              "price":  23484,
+                                              "id":  "levana-levana-smart-locks-2817-10-default"
+                                          }
+                                      ],
+                         "brandId":  "levana",
+                         "imageUrl":  "/catalog/levana/smart%20locks/10.png",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "levana-levana-smart-locks-2815-2778-11",
+                         "name":  "levana 2815 / 2778",
+                         "categoryId":  "smart-home",
+                         "description":  "levana product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "2815 / 2778",
+                                              "price":  24463,
+                                              "id":  "levana-levana-smart-locks-2815-2778-11-default"
+                                          }
+                                      ],
+                         "brandId":  "levana",
+                         "imageUrl":  "/catalog/levana/smart%20locks/11.png",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "levana-levana-smart-locks-2850-12",
+                         "name":  "levana 2850",
+                         "categoryId":  "smart-home",
+                         "description":  "levana product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "2850",
+                                              "price":  25441,
+                                              "id":  "levana-levana-smart-locks-2850-12-default"
+                                          }
+                                      ],
+                         "brandId":  "levana",
+                         "imageUrl":  "/catalog/levana/smart%20locks/12.png",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "levana-levana-smart-locks-2775-2833-13",
+                         "name":  "levana 2775 / 2833",
+                         "categoryId":  "smart-home",
+                         "description":  "levana product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "2775 / 2833",
+                                              "price":  26909,
+                                              "id":  "levana-levana-smart-locks-2775-2833-13-default"
+                                          }
+                                      ],
+                         "brandId":  "levana",
+                         "imageUrl":  "/catalog/levana/smart%20locks/13.png",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "levana-levana-smart-locks-2773-14",
+                         "name":  "levana 2773",
+                         "categoryId":  "smart-home",
+                         "description":  "levana product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "2773",
+                                              "price":  35226,
+                                              "id":  "levana-levana-smart-locks-2773-14-default"
+                                          }
+                                      ],
+                         "brandId":  "levana",
+                         "imageUrl":  "/catalog/levana/smart%20locks/14.png",
+                         "subCategoryId":  "switches"
+                     },
+                     {
+                         "id":  "levana-levana-smart-locks-2816-15",
+                         "name":  "levana 2816",
+                         "categoryId":  "smart-home",
+                         "description":  "levana product from the imported catalog.",
+                         "variants":  [
+                                          {
+                                              "label":  "2816",
+                                              "price":  37183,
+                                              "id":  "levana-levana-smart-locks-2816-15-default"
+                                          }
+                                      ],
+                         "brandId":  "levana",
+                         "imageUrl":  "/catalog/levana/smart%20locks/15.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2015,7 +1887,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/10.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/2.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2031,7 +1903,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/11.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/3.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2047,7 +1919,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/12.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/4.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2063,7 +1935,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/13.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/5.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2079,7 +1951,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/14.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/6.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2095,7 +1967,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/15.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/7.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2111,7 +1983,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/16.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/8.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2127,7 +1999,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/17.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/9.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2143,7 +2015,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/18.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/10.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2159,7 +2031,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/19.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/11.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2175,7 +2047,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/2.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/12.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2191,7 +2063,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/20.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/13.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2207,7 +2079,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/21.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/14.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2223,7 +2095,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/22.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/15.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2239,7 +2111,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/23.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/16.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2255,7 +2127,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/24.1.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/17.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2271,7 +2143,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/24.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/18.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2287,7 +2159,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/25.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/19.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2303,7 +2175,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/26.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/20.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2319,7 +2191,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/27.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/21.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2335,7 +2207,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/28.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/22.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2351,7 +2223,7 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/29.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/23.png",
                          "subCategoryId":  "switches"
                      },
                      {
@@ -2367,11 +2239,11 @@ export const importedCatalog: CatalogPayload = {
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/3.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/24.1.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2378-24",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2378-25",
                          "name":  "LEZN 2378",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2379,15 +2251,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2378",
                                               "price":  17900,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2378-24-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2378-25-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/30.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/25.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2496-25",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2496-26",
                          "name":  "LEZN 2496",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2395,15 +2267,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2496",
                                               "price":  18102,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2496-25-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2496-26-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/31.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/26.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2512-26",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2512-27",
                          "name":  "LEZN 2512",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2411,15 +2283,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2512",
                                               "price":  18102,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2512-26-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2512-27-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/32.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/27.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-k12-face-version-27",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-k12-face-version-28",
                          "name":  "LEZN K12 Face Version",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2427,15 +2299,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "K12 Face Version",
                                               "price":  18592,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-k12-face-version-27-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-k12-face-version-28-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/33.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/28.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2385-28",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2385-29",
                          "name":  "LEZN 2385",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2443,15 +2315,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2385",
                                               "price":  18592,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2385-28-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2385-29-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/34.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/29.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-1327-29",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-1327-30",
                          "name":  "LEZN 1327",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2459,15 +2331,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "1327",
                                               "price":  19179,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-1327-29-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-1327-30-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/35.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/30.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2500-30",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2500-31",
                          "name":  "LEZN 2500",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2475,15 +2347,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2500",
                                               "price":  19570,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2500-30-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2500-31-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/36.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/31.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2508-31",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2508-32",
                          "name":  "LEZN 2508",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2491,15 +2363,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2508",
                                               "price":  21038,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2508-31-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2508-32-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/37.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/32.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2624-32",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2624-33",
                          "name":  "LEZN 2624",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2507,15 +2379,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2624",
                                               "price":  21527,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2624-32-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2624-33-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/4.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/33.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2659-33",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2659-34",
                          "name":  "LEZN 2659",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2523,15 +2395,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2659",
                                               "price":  22900,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2659-33-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2659-34-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/5.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/34.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-1865-34",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-1865-35",
                          "name":  "LEZN 1865",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2539,15 +2411,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "1865",
                                               "price":  25441,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-1865-34-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-1865-35-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/6.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/35.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2577-35",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2577-36",
                          "name":  "LEZN 2577",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2555,15 +2427,15 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2577",
                                               "price":  36009,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2577-35-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2577-36-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/7.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/36.png",
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-2747-36",
+                         "id":  "lezn-lezn-smart-locks-lezn-sib-2747-37",
                          "name":  "LEZN 2747",
                          "categoryId":  "smart-home",
                          "description":  "LEZN product from the imported catalog.",
@@ -2571,27 +2443,11 @@ export const importedCatalog: CatalogPayload = {
                                           {
                                               "label":  "2747",
                                               "price":  38944,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2747-36-default"
+                                              "id":  "lezn-lezn-smart-locks-lezn-sib-2747-37-default"
                                           }
                                       ],
                          "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/8.png",
-                         "subCategoryId":  "switches"
-                     },
-                     {
-                         "id":  "lezn-lezn-smart-locks-lezn-sib-item-38-37",
-                         "name":  "LEZN Item 38",
-                         "categoryId":  "smart-home",
-                         "description":  "LEZN product from the imported catalog.",
-                         "variants":  [
-                                          {
-                                              "label":  "Item 38",
-                                              "price":  0,
-                                              "id":  "lezn-lezn-smart-locks-lezn-sib-item-38-37-default"
-                                          }
-                                      ],
-                         "brandId":  "lezn",
-                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/9.png",
+                         "imageUrl":  "/catalog/LEZN/SMART%20LOCKS-LEZN%2BSIB/37.png",
                          "subCategoryId":  "switches"
                      },
                      {

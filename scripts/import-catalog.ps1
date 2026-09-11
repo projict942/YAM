@@ -1,3 +1,7 @@
+param(
+  [string]$OnlyBrand = ''
+)
+
 $ErrorActionPreference = 'Stop'
 
 $sourceRoot = 'C:\Users\Eslam\Desktop\YAM\DATA'
@@ -9,6 +13,12 @@ New-Item -ItemType Directory -Force -Path $publicRoot | Out-Null
 function Convert-ToId([string]$value) {
   $id = $value.ToLowerInvariant() -replace '[^a-z0-9]+', '-'
   return $id.Trim('-')
+}
+
+function Get-ImageNumber([System.IO.FileInfo]$image) {
+  $numberMatch = [regex]::Match($image.BaseName, '^\d+')
+  if ($numberMatch.Success) { return [int]$numberMatch.Value }
+  return [int]::MaxValue
 }
 
 function Get-BrandLogo([string]$brandName) {
@@ -132,10 +142,11 @@ $directories = Get-ChildItem -LiteralPath $sourceRoot -Recurse -Directory | Sort
 foreach ($directory in $directories) {
   $relative = $directory.FullName.Substring($sourceRoot.Length + 1)
   if (($relative -split '\\').Count -lt 2) { continue }
-  $images = @(Get-ChildItem -LiteralPath $directory.FullName -File | Where-Object { $_.Extension -match '^\.(jpg|jpeg|png|webp|avif)$' } | Sort-Object Name)
+  $images = @(Get-ChildItem -LiteralPath $directory.FullName -File | Where-Object { $_.Extension -match '^\.(jpg|jpeg|png|webp|avif)$' } | Sort-Object @{ Expression = { Get-ImageNumber $_ } }, Name)
   if ($images.Count -eq 0) { continue }
 
   $brandName = ($relative -split '\\')[0]
+  if ($OnlyBrand -and $brandName -ne $OnlyBrand) { continue }
   $brandId = Convert-ToId $brandName
   $category = Get-Category $relative
   $categories[$category.id] = @{ id = $category.id; name = $category.name; icon = $category.icon }
@@ -164,7 +175,10 @@ foreach ($directory in $directories) {
     continue
   }
   for ($index = 0; $index -lt $images.Count; $index++) {
-    $metadataItem = if ($index -lt $metadata.Count) { $metadata[$index] } else { @{ model = "Item $($index + 1)"; name = "Item $($index + 1)"; description = ''; price = 0 } }
+    $imageNumber = Get-ImageNumber $images[$index]
+    $metadataIndex = if ($imageNumber -ne [int]::MaxValue) { $imageNumber - 1 } else { $index }
+    $metadataItem = if ($metadataIndex -ge 0 -and $metadataIndex -lt $metadata.Count) { $metadata[$metadataIndex] } else { continue }
+    if ([int]$metadataItem.price -le 0) { continue }
     $imageRelative = $images[$index].FullName.Substring($sourceRoot.Length + 1)
     $imageUrl = '/catalog/' + (($imageRelative -split '\\' | ForEach-Object { [uri]::EscapeDataString($_) }) -join '/')
     $productId = Convert-ToId "$brandName $relative $($metadataItem.model) $index"
@@ -175,9 +189,9 @@ foreach ($directory in $directories) {
 $seenModels = @{}
 $uniqueProducts = @()
 foreach ($product in $products) {
-  $modelKey = ($product.variants[0].label -as [string]).Trim().ToLowerInvariant()
-  if ($modelKey -and $modelKey -notmatch '^item\s+\d+$' -and $modelKey -notmatch '^option\s+\d+$' -and $seenModels.ContainsKey($modelKey)) { continue }
-  if ($modelKey -and $modelKey -notmatch '^item\s+\d+$' -and $modelKey -notmatch '^option\s+\d+$') { $seenModels[$modelKey] = $true }
+  $modelKey = "$($product.brandId):$(($product.variants[0].label -as [string]).Trim().ToLowerInvariant())"
+  if ($modelKey -and $modelKey -notmatch ':$' -and $modelKey -notmatch ':item\s+\d+$' -and $modelKey -notmatch ':option\s+\d+$' -and $seenModels.ContainsKey($modelKey)) { continue }
+  if ($modelKey -and $modelKey -notmatch ':$' -and $modelKey -notmatch ':item\s+\d+$' -and $modelKey -notmatch ':option\s+\d+$') { $seenModels[$modelKey] = $true }
   $uniqueProducts += $product
 }
 

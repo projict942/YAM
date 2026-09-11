@@ -34,14 +34,18 @@ const normalizeText = (value: unknown) => String(value ?? '').trim().toLowerCase
 const includesKeyword = (text: string, keywords: string[]) =>
   keywords.some((keyword) => text.includes(normalizeText(keyword)));
 
-const getProductPrice = (product: Record<string, any>) => {
+const toPositivePrice = (value: unknown) => {
+  const price = Number(String(value ?? '').replace(/,/g, ''));
+  return Number.isFinite(price) && price > 0 ? price : 0;
+};
+
+const getProductPrice = (product: Record<string, any>, variants = product.variants) => {
   const directPrice = product.price;
   if (directPrice !== null && directPrice !== undefined && directPrice !== '') {
-    return Number(String(directPrice).replace(/,/g, '')) || 0;
+    return toPositivePrice(directPrice);
   }
 
-  const firstVariantPrice = product.variants?.[0]?.price;
-  return Number(String(firstVariantPrice ?? '').replace(/,/g, '')) || 0;
+  return toPositivePrice(variants?.[0]?.price);
 };
 
 const formatDisplayPrices = (price: number) => ({
@@ -50,11 +54,28 @@ const formatDisplayPrices = (price: number) => ({
 });
 
 export function getCleanProducts(rawProducts: any[]): CleanProduct[] {
-  return rawProducts.map((rawProduct) => {
+  const seenProductKeys = new Set<string>();
+
+  return rawProducts.flatMap((rawProduct) => {
     const product = { ...rawProduct };
+    const pricedVariants = Array.isArray(product.variants)
+      ? product.variants
+        .map((variant: any) => ({ ...variant, price: toPositivePrice(variant.price) }))
+        .filter((variant: any) => variant.price > 0)
+      : [];
+    const productPrice = getProductPrice(product, pricedVariants);
+    if (productPrice <= 0 || pricedVariants.length === 0) return [];
+
+    const productName = normalizeText(product.name || product.title);
+    const productKey = productName
+      ? `${normalizeText(product.brandId)}:${productName}`
+      : normalizeText(product.id);
+    if (!productKey || seenProductKeys.has(productKey)) return [];
+    seenProductKeys.add(productKey);
+
     const searchText = [product.name, product.title].map(normalizeText).join(' ');
     const subCategoryId = normalizeText(product.subCategoryId);
-    const displayPrices = formatDisplayPrices(getProductPrice(product));
+    const displayPrices = formatDisplayPrices(productPrice);
 
     let categoryId = product.categoryId;
     if (includesKeyword(searchText, LOCK_KEYWORDS) || subCategoryId === 'locks') {
@@ -71,7 +92,7 @@ export function getCleanProducts(rawProducts: any[]): CleanProduct[] {
       displayPrice: displayPrices.en,
       displayPriceAr: displayPrices.ar,
       displayPriceEn: displayPrices.en,
-      variants: Array.isArray(product.variants) ? product.variants.map((variant: any) => ({ ...variant })) : product.variants,
+      variants: pricedVariants,
     };
   });
 }

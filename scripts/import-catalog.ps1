@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$sourceRoot = 'C:\Users\Eslam\Desktop\DATA'
+$sourceRoot = 'C:\Users\Eslam\Desktop\YAM\DATA'
 $publicRoot = Join-Path $PSScriptRoot '..\public\catalog'
 $outputFile = Join-Path $PSScriptRoot '..\lib\imported-catalog.ts'
 
@@ -85,21 +85,40 @@ function Get-PivoticSwitchProducts([string]$brandId, [string]$brandName, [string
 }
 
 function Get-Price([string]$block) {
-  $matches = [regex]::Matches($block, '(?im)(?:price[^0-9]{0,40}|~\s*|^\s*[^\r\n]*\*\*\s*)([0-9][0-9,]*)')
+  $matches = [regex]::Matches($block, '(?im)^[^\r\n]*(?:price|\u0633\u0639\u0631|~)[^0-9\r\n]*([0-9][0-9,]*)|([0-9][0-9,]*)\s*\u062C\u0646\u064A\u0647')
   if ($matches.Count -eq 0) { return 0 }
-  return [int]($matches[0].Groups[1].Value -replace ',', '')
+  $value = if ($matches[0].Groups[1].Success) { $matches[0].Groups[1].Value } else { $matches[0].Groups[2].Value }
+  return [int]($value -replace ',', '')
 }
 
-function Get-ProductsFromText([string]$text) {
-  $modelPattern = '(?im)(?:^\s*Model\s*/\s*Code\s*:\s*(.+)$|^\s*[^:\r\n]*[^\x00-\x7F][^:\r\n]*:\s*([A-Za-z0-9][A-Za-z0-9 _./-]*\d[A-Za-z0-9 _./-]*)\s*$)'
-  $modelMatches = [regex]::Matches($text, $modelPattern)
+function Get-ProductsFromText([string]$text, [string]$relativePath) {
+  if ($relativePath -match '(?i)IP CAMS') {
+    $section = [regex]::Match($text, '(?is)IP CAMS(.*?)(?=\r?\n\s*NVR\b)').Groups[1].Value
+    if ($section) { $text = $section }
+  } elseif ($relativePath -match '(?i)(?:^|\\)NVR(?:\\|$)') {
+    $section = [regex]::Match($text, '(?is)\bNVR\b(.*?)(?=\r?\n\s*SWITCH)').Groups[1].Value
+    if ($section) { $text = $section }
+  } elseif ($relativePath -match '(?i)(?:^|\\)SWITCH(?:\\|$)') {
+    $section = [regex]::Match($text, '(?is)SWITCHS(.*?)(?=\r?\n\s*SMART)').Groups[1].Value
+    if ($section) { $text = $section }
+  }
+  $productNameLabel = '\u0627\u0633\u0645\s+\u0627\u0644\u0645\u0646\u062a\u062c'
+  $blocks = if ($text -match "(?im)^\s*$productNameLabel\s*:") {
+    [regex]::Split($text, "(?m)(?=^\s*$productNameLabel\s*:)") | Where-Object { $_ -match "(?im)^\s*$productNameLabel\s*:" }
+  } else {
+    [regex]::Split($text, '(?m)(?=^\s*\d+\s*(?:[-/]\s*))') | Where-Object { $_ -match '(?im)^\s*\d+\s*(?:[-/]\s*)' }
+  }
   $products = @()
-  foreach ($match in $modelMatches) {
-    $start = $match.Index
-    $block = $text.Substring($start, [Math]::Min(1800, $text.Length - $start))
-    $model = ($match.Groups[1].Value + $match.Groups[2].Value).Trim() -replace '[^A-Za-z0-9 _./-]', ''
-    if ([string]::IsNullOrWhiteSpace($model)) { continue }
-    $products += @{ model = $model; price = Get-Price $block }
+  foreach ($block in $blocks) {
+    $headingMatch = [regex]::Match($block, '(?im)^\s*\d+\s*(?:[-/]\s*)(.+)$')
+    $nameMatch = [regex]::Match($block, "(?im)^\s*(?:$productNameLabel|Product Name)\s*:\s*(.+)$")
+    $modelMatch = [regex]::Match($block, '(?im)^\s*(?:\u0627\u0644\u0645\u0648\u062f\u064a\u0644\s*/\s*\u0627\u0644\u0643\u0648\u062f|Model\s*/\s*Code|\u0627\u0644\u0643\u0648\u062f|Code)\s*:\s*(.+)$')
+    $model = if ($modelMatch.Success) { $modelMatch.Groups[1].Value.Trim() } else { $headingMatch.Groups[1].Value.Trim() }
+    $name = if ($nameMatch.Success) { $nameMatch.Groups[1].Value.Trim() } elseif ($modelMatch.Success) { $model } else { $headingMatch.Groups[1].Value.Trim() }
+    if ([string]::IsNullOrWhiteSpace($name)) { continue }
+    $descriptionMatch = [regex]::Match($block, '(?im)^\s*(?:\u0627\u0644\u0648\u0635\u0641\s+\u0628\u0627\u0644\u0639\u0631\u0628\u064a|Description)\s*:\s*(.+)$')
+    $description = if ($descriptionMatch.Success) { $descriptionMatch.Groups[1].Value.Trim() } else { '' }
+    $products += @{ model = $model; name = $name; description = $description; price = Get-Price $block }
   }
   return $products
 }
@@ -112,6 +131,7 @@ $products = @()
 $directories = Get-ChildItem -LiteralPath $sourceRoot -Recurse -Directory | Sort-Object FullName
 foreach ($directory in $directories) {
   $relative = $directory.FullName.Substring($sourceRoot.Length + 1)
+  if (($relative -split '\\').Count -lt 2) { continue }
   $images = @(Get-ChildItem -LiteralPath $directory.FullName -File | Where-Object { $_.Extension -match '^\.(jpg|jpeg|png|webp|avif)$' } | Sort-Object Name)
   if ($images.Count -eq 0) { continue }
 
@@ -120,10 +140,19 @@ foreach ($directory in $directories) {
   $category = Get-Category $relative
   $categories[$category.id] = @{ id = $category.id; name = $category.name; icon = $category.icon }
   $subCategories[$category.sub] = @{ id = $category.sub; categoryId = $category.id; name = $category.sub }
-  $brands[$brandId] = @{ id = $brandId; name = $brandName; logoUrl = Get-BrandLogo $brandName }
+  $brandRoot = Join-Path $sourceRoot $brandName
+  $localLogo = Get-ChildItem -LiteralPath $brandRoot -File | Where-Object { $_.Extension -match '^\.(jpg|jpeg|png|webp|avif)$' } | Sort-Object Name | Select-Object -First 1
+  $logoUrl = if ($localLogo) {
+    $logoRelative = $localLogo.FullName.Substring($sourceRoot.Length + 1)
+    '/catalog/' + (($logoRelative -split '\\' | ForEach-Object { [uri]::EscapeDataString($_) }) -join '/')
+  } else {
+    Get-BrandLogo $brandName
+  }
+  $brands[$brandId] = @{ id = $brandId; name = $brandName; logoUrl = $logoUrl }
 
   $textFile = Get-ChildItem -LiteralPath $directory.FullName -File -Filter '*.txt' | Select-Object -First 1
-  $metadata = if ($textFile) { Get-ProductsFromText (Get-Content -LiteralPath $textFile.FullName -Raw) } else { @() }
+  if (-not $textFile) { $textFile = Get-ChildItem -LiteralPath (Split-Path $directory.FullName -Parent) -File -Filter '*.txt' | Select-Object -First 1 }
+  $metadata = if ($textFile) { Get-ProductsFromText (Get-Content -LiteralPath $textFile.FullName -Encoding UTF8 -Raw) $relative } else { @() }
   if ($brandName -eq 'PIVOTIC' -and $textFile) {
     $imageUrls = @($images | ForEach-Object {
       $imageRelative = $_.FullName.Substring($sourceRoot.Length + 1)
@@ -135,15 +164,24 @@ foreach ($directory in $directories) {
     continue
   }
   for ($index = 0; $index -lt $images.Count; $index++) {
-    $metadataItem = if ($index -lt $metadata.Count) { $metadata[$index] } else { @{ model = "Item $($index + 1)"; price = 0 } }
+    $metadataItem = if ($index -lt $metadata.Count) { $metadata[$index] } else { @{ model = "Item $($index + 1)"; name = "Item $($index + 1)"; description = ''; price = 0 } }
     $imageRelative = $images[$index].FullName.Substring($sourceRoot.Length + 1)
     $imageUrl = '/catalog/' + (($imageRelative -split '\\' | ForEach-Object { [uri]::EscapeDataString($_) }) -join '/')
     $productId = Convert-ToId "$brandName $relative $($metadataItem.model) $index"
-    $products += @{ id = $productId; name = "$brandName $($metadataItem.model)"; description = "$brandName product from the imported catalog."; imageUrl = $imageUrl; brandId = $brandId; categoryId = $category.id; subCategoryId = $category.sub; variants = @(@{ id = "$productId-default"; label = $metadataItem.model; price = $metadataItem.price }) }
+    $products += @{ id = $productId; name = "$brandName $($metadataItem.name)"; description = if ($metadataItem.description) { $metadataItem.description } else { "$brandName product from the imported catalog." }; imageUrl = $imageUrl; brandId = $brandId; categoryId = $category.id; subCategoryId = $category.sub; variants = @(@{ id = "$productId-default"; label = $metadataItem.model; price = $metadataItem.price }) }
   }
 }
 
-$payload = @{ categories = @($categories.Values); subCategories = @($subCategories.Values); brands = @($brands.Values); products = $products }
+$seenModels = @{}
+$uniqueProducts = @()
+foreach ($product in $products) {
+  $modelKey = ($product.variants[0].label -as [string]).Trim().ToLowerInvariant()
+  if ($modelKey -and $modelKey -notmatch '^item\s+\d+$' -and $modelKey -notmatch '^option\s+\d+$' -and $seenModels.ContainsKey($modelKey)) { continue }
+  if ($modelKey -and $modelKey -notmatch '^item\s+\d+$' -and $modelKey -notmatch '^option\s+\d+$') { $seenModels[$modelKey] = $true }
+  $uniqueProducts += $product
+}
+
+$payload = @{ categories = @($categories.Values); subCategories = @($subCategories.Values); brands = @($brands.Values); products = $uniqueProducts }
 $json = $payload | ConvertTo-Json -Depth 8
 $typescript = "import type { CatalogPayload } from './catalog';`r`n`r`nexport const importedCatalog: CatalogPayload = $json;`r`n"
 Set-Content -LiteralPath $outputFile -Value $typescript -Encoding UTF8

@@ -292,7 +292,7 @@ const cameraCatalogSections = [
   },
 ];
 
-const totalSteps = 8;
+const totalSteps = 7;
 
 const formatCurrency = (value: number, isArabic: boolean) =>
   new Intl.NumberFormat(isArabic ? 'ar-EG' : 'en-US', {
@@ -829,7 +829,6 @@ export default function Page() {
             <div class="row"><span>${isArabic ? 'المساحة' : 'Area'}</span><strong>${propertyArea || 0} ${isArabic ? 'م²' : 'm²'}</strong></div>
             <div class="row"><span>${isArabic ? 'عدد الغرف' : 'Room count'}</span><strong>${activeRooms.length}</strong></div>
             <div class="row"><span>${isArabic ? 'الميزات المختارة' : 'Selected features'}</span><strong>${totalSelectedFeatures}</strong></div>
-            <div class="row"><span>${isArabic ? 'الباقة' : 'Package'}</span><strong>${getPackageTitle(selectedPackage, isArabic)}</strong></div>
             <div class="row"><span>${isArabic ? 'الاسم' : 'Name'}</span><strong>${fullName || (isArabic ? 'غير محدد' : 'Not provided')}</strong></div>
           </div>
         </body>
@@ -893,7 +892,7 @@ export default function Page() {
       await new Promise(r => setTimeout(r, 900));
       setIsLoading(false);
       setIsSubmitted(true);
-      setStep(8);
+      setStep(7);
     } catch (err) {
       console.error('Error:', err);
       setIsLoading(false);
@@ -985,6 +984,9 @@ export default function Page() {
       ) : (
         <div className="quotation-app">
           <section className="wizard-panel">
+            <div className="top-logo">
+              <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1789158581/1243_rejpq1.png" alt="YAM logo" className="brand-pill" />
+            </div>
             <div className="wizard-header">
               <div>
                 <span className="eyebrow">{isArabic ? 'تكوين الطلب' : 'Quote Builder'}</span>
@@ -992,7 +994,6 @@ export default function Page() {
                 <div className="brand-tagline">YAM Smart Home • Automation • Security</div>
               </div>
               <div className="header-branding">
-                <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" className="brand-pill" />
                 <button
                   type="button"
                   className="language-toggle"
@@ -1289,7 +1290,7 @@ export default function Page() {
               {step === 5 && (
                 <>
                   <div className="step-head">
-                    <span className="step-eyebrow">{isArabic ? 'الخطوة 5 من 8' : 'Step 5 of 8'}</span>
+                    <span className="step-eyebrow">{isArabic ? 'الخطوة 5 من 7' : 'Step 5 of 7'}</span>
                     <h3>{isArabic ? 'اختر المنتجات المطلوبة' : 'Choose the required products'}</h3>
                     <p>{isArabic ? 'فلتر حسب القسم والبراند، ثم اختر أكثر من مواصفة للمنتج نفسه بكميات مختلفة.' : 'Filter by category and brand, then choose multiple variants of the same product with different quantities.'}</p>
                   </div>
@@ -1391,7 +1392,7 @@ export default function Page() {
               {step === 6 && (
                 <>
                   <div className="step-head">
-                    <span className="step-eyebrow">{isArabic ? 'الخطوة 6 من 8' : 'Step 6 of 8'}</span>
+                    <span className="step-eyebrow">{isArabic ? 'الخطوة 6 من 7' : 'Step 6 of 7'}</span>
                     <h3>{isArabic ? 'بيانات التواصل' : 'Contact details'}</h3>
                     <p>{isArabic ? 'يرجى إدخال بياناتك لإرسال العروض والتفاصيل إليك.' : 'Please enter your details so we can send the proposal and follow-up.'}</p>
                   </div>
@@ -1411,32 +1412,6 @@ export default function Page() {
               )}
 
               {step === 7 && (
-                <>
-                  <div className="step-head">
-                    <span className="step-eyebrow">{isArabic ? 'الخطوة 7 من 8' : 'Step 7 of 8'}</span>
-                    <h3>{isArabic ? 'اختر الباقات والتكلفة التقديرية' : 'Choose a package and estimate'}</h3>
-                    <p>{isArabic ? 'حدد الباقة المناسبة لميزانيتك واحتياجاتك.' : 'Select the package that best fits your budget and requirements.'}</p>
-                  </div>
-                  <div className="option-grid" style={{ marginTop: 22 }}>
-                    {packageOptions.map((option) => (
-                      <button
-                        key={option.id}
-                        type="button"
-                        className={`option-card ${selectedPackage === option.id ? 'active' : ''}`}
-                        onClick={() => setSelectedPackage(option.id)}
-                      >
-                        <span className="option-icon material-symbols-rounded">{option.icon}</span>
-                        <span className="option-copy">
-                          <strong>{getPackageTitle(option.id, isArabic)}</strong>
-                          <small>{getPackageSubtitle(option.id, isArabic)}</small>
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              {step === 8 && (
                 <>
                   <div className="step-head">
                     <span className="step-eyebrow">{isArabic ? 'ملخص الطلب' : 'Request summary'}</span>
@@ -1494,13 +1469,6 @@ export default function Page() {
                                 <small>{fullName || (isArabic ? 'غير محدد' : 'Not provided')}</small>
                               </span>
                             </div>
-                            <div className="feature-item selected summary-mini-card" style={{ pointerEvents: 'none' }}>
-                              <span className="feature-icon material-symbols-rounded">star_outline</span>
-                              <span className="feature-content">
-                                <strong>{isArabic ? 'الباقة' : 'Package'}</strong>
-                                <small>{getPackageTitle(selectedPackage, isArabic)}</small>
-                              </span>
-                            </div>
                           </div>
                           <div className="summary-products-table-wrap">
                             <table className="summary-products-table">
@@ -1541,14 +1509,13 @@ export default function Page() {
             </div>
           )}
 
-          {step === 8 && (
+          {step === 7 && (
             <div className="summary-card professional-summary">
               <div className="summary-header-row">
                 <div>
                   <span className="summary-label">{isArabic ? 'التكلفة التقديرية' : 'Estimated investment'}</span>
                   <h4>{isArabic ? 'ملخص المشروع' : 'Project overview'}</h4>
                 </div>
-                <span className="summary-badge">{selectedPackage === 'pro' ? 'PRO' : (isArabic ? 'أساسي' : 'Basic')}</span>
               </div>
               <div className="summary-price">{formatCurrency(estimatedPrice, isArabic)}</div>
               <div className="summary-list">

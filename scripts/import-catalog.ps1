@@ -94,6 +94,48 @@ function Get-PivoticSwitchProducts([string]$brandId, [string]$brandName, [string
   return $products
 }
 
+function Get-PivoticAllSmartProducts([string]$text, [string]$brandId, [hashtable]$imageByNumber) {
+  $blocks = [regex]::Split($text, '(?m)(?=^\s*\d+\s*-)') | Where-Object { $_ -match '(?im)^\s*\d+\s*-' }
+  $products = @()
+  foreach ($block in $blocks) {
+    $headingMatch = [regex]::Match($block, '(?im)^\s*(\d+)\s*-\s*(.+)$')
+    $modelMatch = [regex]::Match($block, '(?im)^\s*\u0627\u0644\u0645\u0648\u062F\u064A\u0644\s*:\s*(.+)$')
+    $descriptionMatch = [regex]::Match($block, '(?im)^\s*\u0627\u0644\u0648\u0635\u0641\s*:\s*(.+)$')
+    $priceMatches = [regex]::Matches($block, '(?im)([0-9][0-9,]*)\s*\u062C\u0646\u064A\u0647')
+    if (-not $headingMatch.Success -or $priceMatches.Count -eq 0) { continue }
+
+    $productNumber = [int]$headingMatch.Groups[1].Value
+    if (-not $imageByNumber.ContainsKey($productNumber)) { continue }
+    $productName = $headingMatch.Groups[2].Value.Trim()
+    $model = if ($modelMatch.Success) { $modelMatch.Groups[1].Value.Trim() } else { $productName }
+    $description = if ($descriptionMatch.Success) { $descriptionMatch.Groups[1].Value.Trim() } else { '' }
+    $productId = Convert-ToId "PIVOTIC all smart $model $productNumber"
+    $variants = @()
+    $variantIndex = 0
+    foreach ($priceMatch in $priceMatches) {
+      $variantIndex++
+      $price = [int]($priceMatch.Groups[1].Value -replace ',', '')
+      $labelEn = if ($priceMatches.Count -eq 1) {
+        $model
+      } elseif ($variantIndex -eq 1) {
+        'Wi-Fi'
+      } else {
+        'Supports smart assistant'
+      }
+      $labelAr = if ($priceMatches.Count -eq 1) {
+        $model
+      } elseif ($variantIndex -eq 1) {
+        -join ([char[]](0x648, 0x627, 0x64a, 0x20, 0x641, 0x627, 0x64a))
+      } else {
+        -join ([char[]](0x64a, 0x62f, 0x639, 0x645, 0x20, 0x627, 0x644, 0x645, 0x633, 0x627, 0x639, 0x62f, 0x20, 0x627, 0x644, 0x630, 0x643, 0x64a))
+      }
+      $variants += @{ id = "$productId-$variantIndex"; label = $labelEn; labelAr = $labelAr; labelEn = $labelEn; price = $price }
+    }
+    $products += @{ id = $productId; name = "PIVOTIC $productName"; description = $description; imageUrl = $imageByNumber[$productNumber]; brandId = $brandId; categoryId = 'smart-home'; subCategoryId = 'smart-switches'; variants = $variants }
+  }
+  return $products
+}
+
 function Get-Price([string]$block) {
   $matches = [regex]::Matches($block, '(?im)^[^\r\n]*(?:price|\u0633\u0639\u0631|~)[^0-9\r\n]*([0-9][0-9,]*)|([0-9][0-9,]*)\s*\u062C\u0646\u064A\u0647')
   if ($matches.Count -eq 0) { return 0 }
@@ -169,6 +211,18 @@ foreach ($directory in $directories) {
       $imageRelative = $_.FullName.Substring($sourceRoot.Length + 1)
       '/catalog/' + (($imageRelative -split '\\' | ForEach-Object { [uri]::EscapeDataString($_) }) -join '/')
     })
+    if ($relative -match '(?i)PIVOTIC\\all smart$') {
+      $imageByNumber = @{}
+      foreach ($image in $images) {
+        $imageNumber = Get-ImageNumber $image
+        if ($imageNumber -ne [int]::MaxValue) {
+          $imageRelative = $image.FullName.Substring($sourceRoot.Length + 1)
+          $imageByNumber[$imageNumber] = '/catalog/' + (($imageRelative -split '\\' | ForEach-Object { [uri]::EscapeDataString($_) }) -join '/')
+        }
+      }
+      $products += Get-PivoticAllSmartProducts (Get-Content -LiteralPath $textFile.FullName -Encoding UTF8 -Raw) $brandId $imageByNumber
+      continue
+    }
     $products += Get-PivoticSwitchProducts $brandId $brandName $imageUrls
     $otherProducts = Get-PivoticProducts (Get-Content -LiteralPath $textFile.FullName -Raw) $brandId $brandName $imageUrls
     $products += @($otherProducts | Select-Object -Skip 4)
@@ -189,9 +243,9 @@ foreach ($directory in $directories) {
 $seenModels = @{}
 $uniqueProducts = @()
 foreach ($product in $products) {
-  $modelKey = "$($product.brandId):$(($product.variants[0].label -as [string]).Trim().ToLowerInvariant())"
-  if ($modelKey -and $modelKey -notmatch ':$' -and $modelKey -notmatch ':item\s+\d+$' -and $modelKey -notmatch ':option\s+\d+$' -and $seenModels.ContainsKey($modelKey)) { continue }
-  if ($modelKey -and $modelKey -notmatch ':$' -and $modelKey -notmatch ':item\s+\d+$' -and $modelKey -notmatch ':option\s+\d+$') { $seenModels[$modelKey] = $true }
+  $modelKey = "$($product.brandId):$(($product.name -as [string]).Trim().ToLowerInvariant())"
+  if ($modelKey -and $modelKey -notmatch ':$' -and $seenModels.ContainsKey($modelKey)) { continue }
+  if ($modelKey -and $modelKey -notmatch ':$') { $seenModels[$modelKey] = $true }
   $uniqueProducts += $product
 }
 

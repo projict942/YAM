@@ -2451,24 +2451,529 @@ export const importedCatalog: CatalogPayload = {
                          "subCategoryId":  "switches"
                      },
                      {
-                         "id":  "pivotic-black-1-gang",
-                         "name":  "PIVOTIC AIVA Smart Switch 1 Gang - Black",
-                         "categoryId":  "smart-switches",
-                         "description":  "Smart touch wall switch with 1 Gang control, Black finish, and Wi-Fi connectivity.",
+                         "id":  "pivotic-all-smart-aiva-sw-1g-1",
+                         "name":  "PIVOTIC AIVA Smart Switch 1 Gang (Black / White)",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح لمس زجاجي إضاءة خط واحد للتحكم الذكي عبر الموبايل والأوامر الصوتية.",
                          "variants":  [
                                           {
-                                              "label":  "Wi-Fi only",
+                                              "label":  "Wi-Fi",
                                               "price":  1400,
-                                              "id":  "pivotic-black-1-gang-wifi"
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-aiva-sw-1g-1-1",
+                                              "labelAr":  "واي فاي"
                                           },
                                           {
-                                              "label":  "Works with Alexa",
-                                              "price":  1400,
-                                              "id":  "pivotic-black-1-gang-alexa"
+                                              "label":  "Supports smart assistant",
+                                              "price":  1500,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-aiva-sw-1g-1-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
                                           }
                                       ],
                          "brandId":  "pivotic",
                          "imageUrl":  "/catalog/PIVOTIC/all%20smart/1.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-sht-1g-9",
+                         "name":  "PIVOTIC Smart Single Shutter Switch (Flat)",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح شتر/ستائر ذكي مفرد بتصميم مسطح للتحكم في فتح وغلق الشتر وتحديد النسبة المئوية.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1520,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-sht-1g-9-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1750,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-sht-1g-9-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/9.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-sht-2g-10",
+                         "name":  "PIVOTIC Smart Double Shutter Switch (Flat)",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح شتر مزدوج بتصميم مسطح للتحكم في محركين شتر من نفس اللوحة.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  2100,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-sht-2g-10-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  2250,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-sht-2g-10-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/10.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-sht-1gc-11",
+                         "name":  "PIVOTIC Smart Single Shutter Switch (Concave)",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح شتر ذكي مفرد بتصميم محفور (Concave) بلمسة ديكورية راقية.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1800,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-sht-1gc-11-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  2000,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-sht-1gc-11-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/11.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-sht-2gc-12",
+                         "name":  "PIVOTIC Smart Double Shutter Switch (Concave)",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح شتر مزدوج بتصميم محفور (Concave) للتحكم في محركين.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  2410,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-sht-2gc-12-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  2550,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-sht-2gc-12-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/12.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-skt-01-13",
+                         "name":  "PIVOTIC Smart Wall Power Socket (White / Black)",
+                         "categoryId":  "smart-home",
+                         "description":  "بريزة/فيشة حائط ذكية للتحكم في الأجهزة الموصولة وقراءة استهلاك الكهرباء.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  2800,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-skt-01-13-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  2870,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-skt-01-13-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/13.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-blr-20a-14",
+                         "name":  "PIVOTIC Smart Boiler / Water Heater Switch",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح سخان ذكي يتحمل أحمال عالية حتى 20 أمبير، لتشغيل السخان وتحديد مواعيد العمل تلقائياً.",
+                         "variants":  [
+                                          {
+                                              "label":  "PIV-BLR-20A",
+                                              "price":  2150,
+                                              "labelEn":  "PIV-BLR-20A",
+                                              "id":  "pivotic-all-smart-piv-blr-20a-14-1",
+                                              "labelAr":  "PIV-BLR-20A"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/14.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-aio-01-15",
+                         "name":  "PIVOTIC Smart All-In-One Socket \u0026 Switch Combo",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة حائط مدمجة تجمع بين البريزة الذكية ومفاتيح التحكم والواجهات السريعة.",
+                         "variants":  [
+                                          {
+                                              "label":  "PIV-AIO-01",
+                                              "price":  3100,
+                                              "labelEn":  "PIV-AIO-01",
+                                              "id":  "pivotic-all-smart-piv-aio-01-15-1",
+                                              "labelAr":  "PIV-AIO-01"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/15.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-scn-01-16",
+                         "name":  "PIVOTIC Smart Scene Switch Panel",
+                         "categoryId":  "smart-home",
+                         "description":  "لوحة مفاتيح ذكية مخصصة لتشغيل المشاهد والسيناريوهات المجهزة مسبقاً بلمسة واحدة.",
+                         "variants":  [
+                                          {
+                                              "label":  "PIV-SCN-01",
+                                              "price":  5800,
+                                              "labelEn":  "PIV-SCN-01",
+                                              "id":  "pivotic-all-smart-piv-scn-01-16-1",
+                                              "labelAr":  "PIV-SCN-01"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/16.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-cl-cnc-17",
+                         "name":  "PIVOTIC Curtain \u0026 Lighting Combination Switch (Concave)",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح مدمج بتصميم محفور للتحكم في الإضاءة والستائر من لوحة واحدة.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  3100,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-cl-cnc-17-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  3220,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-cl-cnc-17-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/17.png",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-cl-flt-18",
+                         "name":  "PIVOTIC Curtain \u0026 Lighting Combination Switch (Flat)",
+                         "categoryId":  "smart-home",
+                         "description":  "مفتاح مدمج بتصميم مسطح للتحكم في الإضاءة والستائر.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  2700,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-cl-flt-18-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  2820,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-cl-flt-18-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/18.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-qs-wifi-s05-qs-zigbee-cp01-19",
+                         "name":  "PIVOTIC Smart Mini Switch Module 1 Gang",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة ذكية صغيرة توضع خلف المفتاح العادي خط واحد لتحويله لذكاء اصطناعي دون تغيير الشكل.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1120,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-qs-wifi-s05-qs-zigbee-cp01-19-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1200,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-qs-wifi-s05-qs-zigbee-cp01-19-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/19.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-qs-wifi-s02-20",
+                         "name":  "PIVOTIC Smart Mini Switch Module 2 Gang",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة صغيرة داخل الماجيك لتحويل مفتاح خطين تقليدي إلى مفتاح ذكي.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1180,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-qs-wifi-s02-20-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1260,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-qs-wifi-s02-20-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/20.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-qs-wifi-s03-21",
+                         "name":  "PIVOTIC Smart Mini Switch Module 3 Gang",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة مدمجة 3 خطوط تركب خلف لوحة المفاتيح العادية.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1240,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-qs-wifi-s03-21-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1320,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-qs-wifi-s03-21-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/21.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-qs-wifi-s04-4c-22",
+                         "name":  "PIVOTIC Smart Mini Switch Module 4 Gang",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة مدمجة 4 خطوط للتحكم في 4 دوائر إضاءة مختلفة.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1300,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-qs-wifi-s04-4c-22-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1380,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-qs-wifi-s04-4c-22-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/22.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-qs-wifi-cp03-23",
+                         "name":  "PIVOTIC Mini In-Wall Shutter / Curtain Module (Single)",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة شتر صغيرة مفردة تختفي خلف مفتاح الشتر التقليدي.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1240,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-qs-wifi-cp03-23-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1310,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-qs-wifi-cp03-23-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/23.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-qs-wifi-cp03-d-24",
+                         "name":  "PIVOTIC Mini In-Wall Shutter / Curtain Module (Double)",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة شتر مزدوجة صغيرة للمحركات المزدوجة.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1600,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-qs-wifi-cp03-d-24-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1650,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-qs-wifi-cp03-d-24-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/24.avif",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-qs-wifi-c03-25",
+                         "name":  "PIVOTIC Mini Smart 4-Channel Relay Module",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة ريلاي ذكية 4 قنوات للتحكم في الأبواب والمحركات والدوائر الكهربائية.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  2100,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-qs-wifi-c03-25-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  2200,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-qs-wifi-c03-25-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/25.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-ir-tm-26",
+                         "name":  "PIVOTIC Smart IR Temperature \u0026 Humidity Controller (Magnetic)",
+                         "categoryId":  "smart-home",
+                         "description":  "جهاز تحكم عام بالأشعة تحت الحمراء مزود بشاشة رقمية وحساس حرارة ورطوبة وقاعدة مغناطيسية.",
+                         "variants":  [
+                                          {
+                                              "label":  "PIV-IR-TM",
+                                              "price":  2600,
+                                              "labelEn":  "PIV-IR-TM",
+                                              "id":  "pivotic-all-smart-piv-ir-tm-26-1",
+                                              "labelAr":  "PIV-IR-TM"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/26.png",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-ir-dig-27",
+                         "name":  "PIVOTIC Smart IR Remote Control with Digital Display",
+                         "categoryId":  "smart-home",
+                         "description":  "ريموت ذكي شامل للتحكم في التكييفات والشاشات مزود بشاشة لعرض الوقت والحرارة.",
+                         "variants":  [
+                                          {
+                                              "label":  "PIV-IR-DIG",
+                                              "price":  1800,
+                                              "labelEn":  "PIV-IR-DIG",
+                                              "id":  "pivotic-all-smart-piv-ir-dig-27-1",
+                                              "labelAr":  "PIV-IR-DIG"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/27.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-ir-rf-28",
+                         "name":  "PIVOTIC Smart IR + RF Universal Remote Control",
+                         "categoryId":  "smart-home",
+                         "description":  "جهاز تحكم دائر يشمل ترددات الأشعة تحت الحمراء والـ RF للمراوح والستائر.",
+                         "variants":  [
+                                          {
+                                              "label":  "PIV-IR-RF",
+                                              "price":  1650,
+                                              "labelEn":  "PIV-IR-RF",
+                                              "id":  "pivotic-all-smart-piv-ir-rf-28-1",
+                                              "labelAr":  "PIV-IR-RF"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/28.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-ir-zb-29",
+                         "name":  "PIVOTIC Smart IR Remote Control (ZigBee Box)",
+                         "categoryId":  "smart-home",
+                         "description":  "وحدة تحكم للأجهزة المنزلية تعمل مباشرة عبر شبكة زيجبي.",
+                         "variants":  [
+                                          {
+                                              "label":  "PIV-IR-ZB",
+                                              "price":  1800,
+                                              "labelEn":  "PIV-IR-ZB",
+                                              "id":  "pivotic-all-smart-piv-ir-zb-29-1",
+                                              "labelAr":  "PIV-IR-ZB"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/29.jpg",
+                         "subCategoryId":  "smart-switches"
+                     },
+                     {
+                         "id":  "pivotic-all-smart-piv-ir-std-30",
+                         "name":  "PIVOTIC Smart IR Universal Remote Control Standard",
+                         "categoryId":  "smart-home",
+                         "description":  "جهاز تحكم بالأشعة تحت الحمراء ذو تصميم دائر وأداء سلس مع الموبايل والمساعدات الصوتية.",
+                         "variants":  [
+                                          {
+                                              "label":  "Wi-Fi",
+                                              "price":  1400,
+                                              "labelEn":  "Wi-Fi",
+                                              "id":  "pivotic-all-smart-piv-ir-std-30-1",
+                                              "labelAr":  "واي فاي"
+                                          },
+                                          {
+                                              "label":  "Supports smart assistant",
+                                              "price":  1950,
+                                              "labelEn":  "Supports smart assistant",
+                                              "id":  "pivotic-all-smart-piv-ir-std-30-2",
+                                              "labelAr":  "يدعم المساعد الذكي"
+                                          }
+                                      ],
+                         "brandId":  "pivotic",
+                         "imageUrl":  "/catalog/PIVOTIC/all%20smart/30.jpg",
                          "subCategoryId":  "smart-switches"
                      },
                      {

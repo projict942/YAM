@@ -21,6 +21,8 @@ export type CatalogBrand = {
 export type CatalogVariant = {
   id: string;
   label: string;
+  labelAr?: string;
+  labelEn?: string;
   price: number;
 };
 

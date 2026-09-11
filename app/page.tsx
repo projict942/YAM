@@ -501,6 +501,7 @@ const getAutomaticReply = (message: string, isArabic: boolean) => {
 export default function Page() {
   const [step, setStep] = useState(1);
   const [showLanding, setShowLanding] = useState(true);
+  const [isBooting, setIsBooting] = useState(true);
   const [language, setLanguage] = useState<'en' | 'ar'>('en');
   const [serviceType, setServiceType] = useState('apartment');
   const [propertyArea, setPropertyArea] = useState('180');
@@ -552,6 +553,11 @@ export default function Page() {
     document.documentElement.lang = language;
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
   }, [language]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setIsBooting(false), 1200);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const progress = useMemo(() => `${Math.min((step / totalSteps) * 100, 100)}%`, [step]);
 
@@ -701,6 +707,8 @@ export default function Page() {
     (selectedSubCategoryId === 'all' || product.subCategoryId === selectedSubCategoryId) &&
     (selectedBrandId === 'all' || product.brandId === selectedBrandId),
   ) ?? [];
+
+  const landingProducts = catalog?.products.slice(0, 4) ?? [];
 
   const updateProductQuantity = (product: CatalogProduct, variantId: string, delta: number) => {
     setSelectedProductLines((previous) => {
@@ -922,80 +930,78 @@ export default function Page() {
       <div className="orb orb-two" />
       <div className="orb orb-three" />
 
-      {showLanding ? (
-        <div className="landing-panel">
-          <div className="landing-card">
-            <div className="landing-topbar">
-              <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" className="yam-logo" />
-              <button
-                type="button"
-                className="language-toggle"
-                onClick={() => setLanguage(isArabic ? 'en' : 'ar')}
-              >
-                {isArabic ? 'EN' : 'AR'}
-              </button>
-            </div>
-
-            <div className="landing-content">
-              <div className="landing-copy">
-                <span className="eyebrow">{isArabic ? 'المنزل الذكي المصمم لك' : 'Smart living, designed for you'}</span>
-                <h1>{isArabic ? 'صمم مشروعك الذكي بطريقة سهلة واحترافية' : 'Design your smart project in a simple, professional way'}</h1>
-                <p>
-                  {isArabic
-                    ? 'اختر نوع العقار، شارح احتياجاتك، وحدد الأجهزة المناسبة، ثم احصل على عرض سعر فوري ومناسب لميزانيتك.'
-                    : 'Choose your property type, explain your needs, select the right devices, and get an instant quote that fits your budget.'}
-                </p>
-
-                <div className="landing-badges">
-                  <span>{isArabic ? 'أمن' : 'Security'}</span>
-                  <span>{isArabic ? 'تحكم ذكي' : 'Automation'}</span>
-                  <span>{isArabic ? 'تركيب احترافي' : 'Professional install'}</span>
-                </div>
-
-                <div className={`landing-actions ${!isArabic ? 'landing-actions-en' : ''}`}>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={() => {
-                      setShowLanding(false);
-                      setStep(1);
-                    }}
-                  >
-                    {isArabic ? 'ابدأ الآن' : 'Start now'}
-                  </button>
-                  <button type="button" className="btn btn-outline" onClick={() => setChatOpen(true)}>
-                    {isArabic ? 'تواصل معنا' : 'Contact us'}
-                  </button>
-                </div>
-              </div>
-
-              <div className="landing-preview">
-                <div className="preview-card">
-                  <div className="preview-header">
-                    <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788309126/WhatsApp_Image_2026-09-02_at_12.08.45_AM_vf0ulu.png" alt="YAM logo" className="preview-tag" />
-                    <span className="preview-status">{isArabic ? 'متاح الآن' : 'Available now'}</span>
-                  </div>
-
-                  <div className="preview-metrics">
-                    <div>
-                      <strong>24/7</strong>
-                      <small>{isArabic ? 'دعم' : 'Support'}</small>
-                    </div>
-                    <div>
-                      <strong>3.2k</strong>
-                      <small>{isArabic ? 'منتج' : 'Products'}</small>
-                    </div>
-                  </div>
-
-                  <div className="mini-stack">
-                    <span>{isArabic ? 'أمان منزلي' : 'Home security'}</span>
-                    <span>{isArabic ? 'إضاءة ذكية' : 'Smart lighting'}</span>
-                    <span>{isArabic ? 'تحكم بالهواء' : 'Climate control'}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {isBooting ? (
+        <div className="boot-screen" aria-label="Loading YAM">
+          <div className="boot-mark">
+            <img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" />
           </div>
+          <div className="boot-line"><span /></div>
+          <p>{isArabic ? 'نجهز لك تجربة أذكى' : 'Preparing a smarter experience'}</p>
+        </div>
+      ) : showLanding ? (
+        <div className="company-home">
+          <nav className="company-nav">
+            <a href="#top" className="nav-logo"><img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" /></a>
+            <div className="nav-links">
+              <a href="#solutions">{isArabic ? 'حلولنا' : 'Solutions'}</a>
+              <a href="#products">{isArabic ? 'المنتجات' : 'Products'}</a>
+              <a href="#process">{isArabic ? 'كيف نعمل' : 'How it works'}</a>
+            </div>
+            <div className="nav-actions">
+              <button type="button" className="language-toggle" onClick={() => setLanguage(isArabic ? 'en' : 'ar')}>{isArabic ? 'EN' : 'AR'}</button>
+              <button type="button" className="nav-quote" onClick={() => { setShowLanding(false); setStep(1); }}>{isArabic ? 'صمم مشروعك' : 'Build your quote'}</button>
+            </div>
+          </nav>
+
+          <section id="top" className="company-hero">
+            <div className="hero-copy">
+              <span className="hero-kicker"><span className="pulse-dot" /> {isArabic ? 'حلول ذكية للمساحات الحديثة' : 'Smart infrastructure for modern spaces'}</span>
+              <h1>{isArabic ? 'بيتك أذكى، أكثر أمانًا، وأقرب لك.' : 'Make every space smarter, safer, and closer.'}</h1>
+              <p>{isArabic ? 'نصمم ونركب أنظمة المنزل الذكي، الأمان، والتحكم في الدخول بتجربة واحدة متصلة.' : 'We design and install connected systems for smart homes, security, and access control, all in one considered experience.'}</p>
+              <div className="hero-actions">
+                <button type="button" className="btn btn-primary" onClick={() => { setShowLanding(false); setStep(1); }}>{isArabic ? 'ابدأ تصميم مشروعك' : 'Design your project'}</button>
+                <a className="text-action" href="#solutions">{isArabic ? 'اكتشف الحلول' : 'Explore solutions'} <span>↗</span></a>
+              </div>
+              <div className="hero-trust"><strong>YAM</strong><span>{isArabic ? 'أنظمة منخفضة التيار، مصممة باحتراف.' : 'Low-current systems, thoughtfully delivered.'}</span></div>
+            </div>
+            <div className="hero-scene" aria-label={isArabic ? 'منزل ذكي ثلاثي الأبعاد' : '3D smart home scene'}>
+              <div className="scene-grid" />
+              <div className="scene-glow" />
+              <div className="scene-house">
+                <div className="house-roof"><span /></div>
+                <div className="house-body"><div className="house-window window-one" /><div className="house-window window-two" /><div className="house-door" /></div>
+              </div>
+              <div className="scene-chip chip-lock"><span className="material-symbols-rounded">lock</span>{isArabic ? 'أمان ذكي' : 'Smart lock'}</div>
+              <div className="scene-chip chip-cam"><span className="material-symbols-rounded">videocam</span>{isArabic ? 'مراقبة 24/7' : '24/7 vision'}</div>
+              <div className="scene-chip chip-light"><span className="material-symbols-rounded">lightbulb</span>{isArabic ? 'تحكم كامل' : 'Full control'}</div>
+              <div className="scene-orbit orbit-a" /><div className="scene-orbit orbit-b" />
+            </div>
+          </section>
+
+          <section className="proof-strip">
+            <div><strong>12+</strong><span>{isArabic ? 'براند موثوق' : 'Trusted brands'}</span></div>
+            <div><strong>200+</strong><span>{isArabic ? 'منتج متاح' : 'Available products'}</span></div>
+            <div><strong>24/7</strong><span>{isArabic ? 'دعم مستمر' : 'Ongoing support'}</span></div>
+            <div><strong>01</strong><span>{isArabic ? 'تجربة متصلة' : 'Connected experience'}</span></div>
+          </section>
+
+          <section id="solutions" className="company-section">
+            <div className="section-heading"><span className="eyebrow">{isArabic ? 'ماذا نقدم' : 'What we build'}</span><h2>{isArabic ? 'حلول تتحرك معك.' : 'Systems that move with you.'}</h2><p>{isArabic ? 'من أول ضغطة إلى آخر تفصيلة، كل عنصر يعمل ضمن منظومة واحدة.' : 'From the first touch to the final detail, every layer works as one calm, connected system.'}</p></div>
+            <div className="solution-grid">
+              {[['security','Security','الأمان والحماية','videocam','/catalog/Dahua/CCTV/IP%20CAM/1.jpg'],['access','Access control','التحكم في الدخول','door_front','/catalog/Hikvision/Access%20Control/1.png'],['smart','Smart home','البيت الذكي','home_iot_device','/catalog/CORDLESS/SMART%20HOME/Smart%20all/3.png'],['network','Networking','الشبكات','settings_ethernet','/catalog/UNV/CCTV/SWITCHIES/1.png']].map(([id,en,ar,icon,image], index) => (
+                <article className={`solution-card solution-${index + 1}`} key={id}><img src={image} alt="" /><div className="solution-overlay"><span className="material-symbols-rounded">{icon}</span><h3>{isArabic ? ar : en}</h3><span className="solution-arrow">↗</span></div></article>
+              ))}
+            </div>
+          </section>
+
+          <section id="products" className="company-section product-section">
+            <div className="section-heading section-heading-row"><div><span className="eyebrow">{isArabic ? 'من الكتالوج' : 'From the catalog'}</span><h2>{isArabic ? 'أجهزة تستحق مكانها.' : 'Hardware with a purpose.'}</h2></div><button type="button" className="text-action" onClick={() => { setShowLanding(false); setStep(5); }}>{isArabic ? 'عرض الكتالوج' : 'View catalog'} <span>↗</span></button></div>
+            <div className="product-showcase">{landingProducts.map((product) => <article className="showcase-product" key={product.id}><div className="product-image-wrap"><img src={product.imageUrl} alt="" /></div><span>{catalog?.brands.find((brand) => brand.id === product.brandId)?.name}</span><h3>{product.name}</h3><small>{isArabic ? product.displayPriceAr : product.displayPriceEn}</small></article>)}</div>
+          </section>
+
+          <section id="process" className="process-section"><div className="process-intro"><span className="eyebrow">{isArabic ? 'الطريقة' : 'The YAM way'}</span><h2>{isArabic ? 'من الفكرة إلى التشغيل.' : 'From first idea to first switch.'}</h2><p>{isArabic ? 'رحلة بسيطة، مدروسة، ومبنية على احتياجك الحقيقي.' : 'A simple, considered journey built around how you actually live and work.'}</p><button type="button" className="btn btn-primary" onClick={() => { setShowLanding(false); setStep(1); }}>{isArabic ? 'ابدأ الآن' : 'Start your project'}</button></div><div className="process-steps"><div><b>01</b><span className="material-symbols-rounded">forum</span><h3>{isArabic ? 'نسمعك' : 'We listen'}</h3><p>{isArabic ? 'نفهم المكان، الروتين، والأولويات.' : 'We understand your space, routines, and priorities.'}</p></div><div><b>02</b><span className="material-symbols-rounded">architecture</span><h3>{isArabic ? 'نصمم' : 'We design'}</h3><p>{isArabic ? 'نحول احتياجك إلى نظام واضح قابل للتنفيذ.' : 'We turn your needs into a clear, buildable system.'}</p></div><div><b>03</b><span className="material-symbols-rounded">bolt</span><h3>{isArabic ? 'نشغل' : 'We deliver'}</h3><p>{isArabic ? 'نركب، نختبر، ونسلمك تجربة تعمل.' : 'We install, test, and hand over a system that works.'}</p></div></div></section>
+
+          <footer className="company-footer"><img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" /><span>{isArabic ? 'أنظمة ذكية للحياة اليومية.' : 'Smart systems for everyday life.'}</span><button type="button" className="language-toggle" onClick={() => setLanguage(isArabic ? 'en' : 'ar')}>{isArabic ? 'EN' : 'AR'}</button></footer>
         </div>
       ) : (
         <div className="quotation-app">
@@ -1389,7 +1395,7 @@ export default function Page() {
                             const selection = selectedProductLines.find((line) => line.productId === product.id && line.variantId === variant.id);
                             return (
                               <div key={variant.id} className="variant-row">
-                                <span>{variant.label}</span>
+                                <span>{isArabic ? variant.labelAr ?? variant.label : variant.labelEn ?? variant.label}</span>
                                 <span>{formatCurrency(variant.price, isArabic)}</span>
                                 <div className="feature-quantity-row">
                                   <button type="button" onClick={() => updateProductQuantity(product, variant.id, -1)} className="material-symbols-rounded" aria-label="تقليل">remove</button>

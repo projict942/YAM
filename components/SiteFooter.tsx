@@ -21,8 +21,8 @@ export default function SiteFooter() {
     <footer className="site-footer" lang={language}>
       <div>
         {language === "ar"
-          ? "© 2026 YAM4LSC. جميع الحقوق محفوظة."
-          : "© 2026 YAM4LSC. All rights reserved."}
+          ? "© 2026 YAM4LCS. جميع الحقوق محفوظة."
+          : "© 2026 YAM4LCS. All rights reserved."}
       </div>
       <div>Designed &amp; Developed by Fady</div>
     </footer>

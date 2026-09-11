@@ -535,6 +535,12 @@ export default function Page() {
   const isArabic = language === 'ar';
 
   useEffect(() => {
+    document.documentElement.lang = language;
+    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+    window.dispatchEvent(new Event('yam-language-change'));
+  }, [isArabic, language]);
+
+  useEffect(() => {
     fetch('/api/catalog')
       .then((response) => response.json())
       .then((payload: CatalogPayload) => {
@@ -988,7 +994,7 @@ export default function Page() {
 
           <section id="solutions" className="company-section">
             <div className="section-heading"><span className="eyebrow">{isArabic ? 'ماذا نقدم' : 'What we build'}</span><h2>{isArabic ? 'حلول تتحرك معك.' : 'Systems that move with you.'}</h2><p>{isArabic ? 'من أول ضغطة إلى آخر تفصيلة، كل عنصر يعمل ضمن منظومة واحدة.' : 'From the first touch to the final detail, every layer works as one calm, connected system.'}</p></div>
-            <Carousel360 />
+            <Carousel360 isArabic={isArabic} />
           </section>
 
           <section id="products" className="company-section product-section">
@@ -998,7 +1004,7 @@ export default function Page() {
 
           <section id="process" className="process-section"><div className="process-intro"><span className="eyebrow">{isArabic ? 'الطريقة' : 'The YAM way'}</span><h2>{isArabic ? 'من الفكرة إلى التشغيل.' : 'From first idea to first switch.'}</h2><p>{isArabic ? 'رحلة بسيطة، مدروسة، ومبنية على احتياجك الحقيقي.' : 'A simple, considered journey built around how you actually live and work.'}</p><button type="button" className="btn btn-primary" onClick={() => { setShowLanding(false); setStep(1); }}>{isArabic ? 'ابدأ الآن' : 'Start your project'}</button></div><div className="process-steps"><div><b>01</b><span className="material-symbols-rounded">forum</span><h3>{isArabic ? 'نسمعك' : 'We listen'}</h3><p>{isArabic ? 'نفهم المكان، الروتين، والأولويات.' : 'We understand your space, routines, and priorities.'}</p></div><div><b>02</b><span className="material-symbols-rounded">architecture</span><h3>{isArabic ? 'نصمم' : 'We design'}</h3><p>{isArabic ? 'نحول احتياجك إلى نظام واضح قابل للتنفيذ.' : 'We turn your needs into a clear, buildable system.'}</p></div><div><b>03</b><span className="material-symbols-rounded">bolt</span><h3>{isArabic ? 'نشغل' : 'We deliver'}</h3><p>{isArabic ? 'نركب، نختبر، ونسلمك تجربة تعمل.' : 'We install, test, and hand over a system that works.'}</p></div></div></section>
 
-          <footer className="company-footer"><img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" /><span>{isArabic ? 'أنظمة ذكية للحياة اليومية.' : 'Smart systems for everyday life.'}</span><button type="button" className="language-toggle" onClick={() => setLanguage(isArabic ? 'en' : 'ar')}>{isArabic ? 'EN' : 'AR'}</button></footer>
+          <footer className="company-footer"><img src="https://res.cloudinary.com/dyvadd9tt/image/upload/v1788811016/YAM_gpd2k1.png" alt="YAM logo" /><div className="company-footer-contact"><strong>ENG/AHMED MOUSTAFA</strong><span>القاهره,الخليفه</span></div><button type="button" className="language-toggle" onClick={() => setLanguage(isArabic ? 'en' : 'ar')}>{isArabic ? 'EN' : 'AR'}</button></footer>
         </div>
       ) : (
         <div className="quotation-app">

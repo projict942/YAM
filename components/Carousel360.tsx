@@ -29,7 +29,7 @@ const ImageLoader = () => (
   </div>
 );
 
-export default function Carousel360() {
+export default function Carousel360({ isArabic }: { isArabic: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [rotation, setRotation] = useState(0);
   const [radius, setRadius] = useState(220);
@@ -98,9 +98,13 @@ export default function Carousel360() {
         </div>
       </div>
       <div className="carousel-360-controls">
-        <button type="button" aria-label="Previous image" onClick={() => rotateCarousel("left")}><FaArrowLeft /></button>
+        <button type="button" aria-label={isArabic ? "الصورة السابقة" : "Previous image"} onClick={() => rotateCarousel("left")}>
+          {isArabic ? <FaArrowRight /> : <FaArrowLeft />}
+        </button>
         <span>{String(centerIndex + 1).padStart(2, "0")} / {String(numImages).padStart(2, "0")}</span>
-        <button type="button" aria-label="Next image" onClick={() => rotateCarousel("right")}><FaArrowRight /></button>
+        <button type="button" aria-label={isArabic ? "الصورة التالية" : "Next image"} onClick={() => rotateCarousel("right")}>
+          {isArabic ? <FaArrowLeft /> : <FaArrowRight />}
+        </button>
       </div>
     </div>
   );

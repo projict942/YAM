@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CatalogPayload, CatalogProduct } from '@/lib/catalog';
 import { CATEGORIES, getCleanProducts } from '@/lib/productsUtils';
+import Carousel360 from '@/components/Carousel360';
 
 type ProductSelection = {
   productId: string;
@@ -987,11 +988,7 @@ export default function Page() {
 
           <section id="solutions" className="company-section">
             <div className="section-heading"><span className="eyebrow">{isArabic ? 'ماذا نقدم' : 'What we build'}</span><h2>{isArabic ? 'حلول تتحرك معك.' : 'Systems that move with you.'}</h2><p>{isArabic ? 'من أول ضغطة إلى آخر تفصيلة، كل عنصر يعمل ضمن منظومة واحدة.' : 'From the first touch to the final detail, every layer works as one calm, connected system.'}</p></div>
-            <div className="solution-grid">
-              {[['security','Security','الأمان والحماية','videocam','/catalog/Dahua/CCTV/IP%20CAM/1.jpg'],['access','Access control','التحكم في الدخول','door_front','/catalog/Hikvision/Access%20Control/1.png'],['smart','Smart home','البيت الذكي','home_iot_device','/catalog/CORDLESS/SMART%20HOME/Smart%20all/3.png'],['network','Networking','الشبكات','settings_ethernet','/catalog/UNV/CCTV/SWITCHIES/1.png']].map(([id,en,ar,icon,image], index) => (
-                <article className={`solution-card solution-${index + 1}`} key={id}><img src={image} alt="" /><div className="solution-overlay"><span className="material-symbols-rounded">{icon}</span><h3>{isArabic ? ar : en}</h3><span className="solution-arrow">↗</span></div></article>
-              ))}
-            </div>
+            <Carousel360 />
           </section>
 
           <section id="products" className="company-section product-section">
